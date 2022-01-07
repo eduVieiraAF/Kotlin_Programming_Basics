@@ -2,9 +2,8 @@ package OOP
 
 class Dog: Animal("Dog") {
 
-    fun bark(){
+    override fun makeSound() {
 
         println("Woof!!!")
-        println("[swiftly flies away]")
     }
 }

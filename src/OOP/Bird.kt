@@ -2,8 +2,9 @@ package OOP
 
 class Bird: Animal("Bird", 2) {
 
-    fun chirp(){
+    override fun makeSound() {
 
         println("Chirp chirp... a little singing, chirp...")
+        println("[swiftly flies away]")
     }
 }

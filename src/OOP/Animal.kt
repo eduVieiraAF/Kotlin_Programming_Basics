@@ -9,4 +9,6 @@ abstract class Animal(
     init {
         println("Hey hooman, I am a $name")
     }
+
+    abstract fun makeSound()
 }
