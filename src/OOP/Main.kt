@@ -17,4 +17,17 @@ fun main(){
     val bird = Bird()
     println("I have ${bird.legs} legs.")
     bird.makeSound()
+
+    // anonymous class
+
+    println()
+
+    val lion = object: Animal("Lion") {
+
+        override fun makeSound() {
+
+            println("ROAR!!!")
+        }
+    }
+    lion.makeSound()
 }
