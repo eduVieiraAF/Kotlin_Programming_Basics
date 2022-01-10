@@ -3,10 +3,7 @@ package OOP
 fun main(){
 
     val list = listOf("Kotlin", "Java", "JavaScript")
-    val count = list.customCount { currentSting ->
-
-        currentSting.length > 4
-    }
+    val count = list.customCount { currentSting -> currentSting.length > 4}
 
     println(count)
 }
