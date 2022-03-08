@@ -4,7 +4,7 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
-import java.util.*
+
 
 fun main(){
 
@@ -13,6 +13,7 @@ fun main(){
     currentDateTimePattern()
     println()
     currentDateTimePattern2()
+
     println()
     stringToDate()
 }
@@ -23,6 +24,7 @@ fun stringToDate() {
     val date = LocalDate.parse(string, DateTimeFormatter.ISO_DATE)
 
     println("Today's date is: $date")
+
 }
 
 fun currentDateTimePattern2() {
