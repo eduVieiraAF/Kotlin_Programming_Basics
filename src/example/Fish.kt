@@ -28,6 +28,13 @@ fun fishExamples(){
 fun main(){
 
     fishExamples()
+    println()
+    runExample()
 }
 
 fun myWith(name: String, block: String.() -> Unit){name.block()}
+
+fun runExample(){
+
+   JavaRun.runNow { println("Passing a lambda as a Runnable") }
+}
