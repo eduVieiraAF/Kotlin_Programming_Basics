@@ -1,25 +1,41 @@
 package aquarium
 
-import java.util.*
+import kotlin.random.Random
+
 
 fun main(){
 
-    dayOfWeek()
+    feedTheFish()
 }
 
-fun dayOfWeek() {
+fun feedTheFish(){
 
-    println("What day is it today?")
+    val day = randomDay()
+    val food = fishFood(day)
 
-    val day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)
-    println( when (day) {
-        1 -> "Sunday"
-        2 -> "Monday"
-        3 -> "Tuesday"
-        4 -> "Wednesday"
-        5 -> "Thursday"
-        6 -> "Friday"
-        7 -> "Saturday"
-        else -> "Time has stopped"
-    })
+    println("Today is $day and the fish eat $food")
+}
+
+fun fishFood(day: String): String {
+
+    var food = "fasting"
+
+    return when(day){
+
+        "Monday" -> "flakes"
+        "Tuesday" -> "pellets"
+        "Wednesday" -> "red worms"
+        "Thursday" -> "granules"
+        "Friday" -> "mosquitoes"
+        "Saturday" -> "lettuce"
+        "Sunday" -> "plankton"
+        else -> "fasting"
+    }
+}
+
+fun randomDay(): String {
+
+    val week = listOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+
+    return week[Random.nextInt(7)]
 }
