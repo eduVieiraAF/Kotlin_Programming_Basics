@@ -2,9 +2,10 @@ package aquarium
 
 import kotlin.random.Random
 
-
 fun main(){
+
     feedTheFish()
+    eagerExample()
 }
 
 fun getDirtySensorReading () = 20
@@ -20,9 +21,7 @@ fun shouldChangeWater(day: String, temperature: Int = 22, dirty: Int = getDirtyS
 }
 
 fun isTooHot(temperature: Int) = temperature > 30
-
 fun isDirty(dirty: Int) = dirty > 30
-
 fun isSunday(day: String) = day == "Sunday"
 
 fun feedTheFish(){
@@ -40,6 +39,27 @@ fun feedTheFish(){
     println("Today is $day and the fish eat $food")
 
     swim(50, "slow")
+
+    dirtyProcessor()
+}
+
+fun eagerExample(){
+
+    val decorations = listOf("rocks", "pagoda", "plastic plant", "alligator", "flowerpot")
+    val eager = decorations.filter { it[0] == 'p' }
+
+    println(eager)
+
+    // apply filter lazily
+    val filtered = decorations.asSequence().filter { it[0] == 'p' }
+
+    println(filtered)
+    println(filtered.toList())
+
+    //apply map lazily
+    val lazyMap = decorations.asSequence().map { println("map: $it") }
+    println("first: ${lazyMap.first()}")
+    print("all: ${lazyMap.toList()}")
 }
 
 fun fishFood(day: String): String {
@@ -67,3 +87,21 @@ fun randomDay(): String {
 }
 
 fun swim(time: Int, speed: String = "fast"){}
+
+var dirty = 20
+
+val waterFilter: (Int) -> Int = {dirty -> dirty / 2}
+
+fun feedFish(dirty: Int) = dirty + 10
+
+fun updateDirty (dirty: Int, operator: (Int) -> Int): Int{
+
+    return operator(dirty)
+}
+
+fun dirtyProcessor(){
+
+    dirty = updateDirty(dirty, waterFilter)
+    dirty = updateDirty(dirty, ::feedFish)
+    dirty = updateDirty(dirty) { dirty -> dirty + 50}
+}
