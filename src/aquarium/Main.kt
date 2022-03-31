@@ -5,6 +5,7 @@ fun main(){
     buildAquarium()
     println()
     makeFish()
+    delegation()
 }
 
 fun buildAquarium() {
@@ -33,10 +34,14 @@ fun buildAquarium() {
             "width ${aquarium2.width} " + "height ${aquarium2.height}")
 }
 
+fun feedFish(fish: FishAction) = fish.eat()
+
 fun makeFish(){
 
     val shark =  Shark()
     val pleco = Plecostomus()
 
     println("Shark: ${shark.color} \nPlecostomus: ${pleco.color} ")
+    shark.eat()
+    pleco.eat()
 }
