@@ -5,6 +5,7 @@ fun main(){
     buildAquarium()
     println()
     makeFish()
+    println()
     delegation()
 }
 
