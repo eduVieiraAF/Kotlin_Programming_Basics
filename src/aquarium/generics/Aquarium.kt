@@ -20,24 +20,56 @@ class LakeWater: WaterSupply(false){
 
 }
 
-class Aquarium<T: WaterSupply> (val waterSupply: T){
+class Aquarium<out T: WaterSupply> (val waterSupply: T){
 
-    fun addWater(){
+    fun addWater(cleaner: Cleaner<T>){
 
-        check(!waterSupply.needsProcessed) {"watter supply needs processed"}
+        if (waterSupply.needsProcessed) cleaner.clean(waterSupply)
         println("adding water from $waterSupply")
 
     }
 
 }
 
+interface Cleaner<in T: WaterSupply> {fun clean(waterSupply: T)}
+
+class TapWaterCleaner: Cleaner<TapWater>{
+
+    override fun clean(waterSupply: TapWater) {
+
+        waterSupply.addChemicalCleaners()
+
+    }
+
+}
+
+fun addItemTo(aquarium: Aquarium<WaterSupply>) = println("item added")
+
 fun genericExample(){
 
+    val cleaner = TapWaterCleaner()
+
     val aquarium = Aquarium(TapWater())
-    aquarium.waterSupply.addChemicalCleaners()
+    aquarium.addWater(cleaner)
 
     val aquarium2 = Aquarium(LakeWater())
     aquarium2.waterSupply.filter()
-    aquarium2.addWater()
+    //aquarium2.addWater(cleaner)
+
+    val aquarium3 = Aquarium(TapWater())
+    aquarium3.addWater(cleaner)
 
 }
+ /* In and OUT:
+
+ Out types are type parameters that only ever occur in return values of functions, or on VAL properties. If we try
+ to pass an out type as a parameter to a function, we get a compile error. Once we make a generic type an out type,
+ kotlin can infer extra information about where our types are safe to use.
+
+ In types are from the sme school as out types. In types can e used anytime the generic is only used as an argument
+ to functions. More specifically, in types can only be passed into an object. Out types can only be passed out of an
+ object or returned.
+
+ There's one special time you can pass an out type - Constructor can take out types as arguments, but functions never
+ can.
+  */
