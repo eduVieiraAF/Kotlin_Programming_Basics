@@ -1,11 +1,13 @@
 package aquarium.decorations
 
-/*fun String.hasSpaces(): Boolean{
+/*
+fun String.hasSpaces(): Boolean{
 
     val found: Char? = this.find { it == ' ' }
     return found != null
 
-}*/
+} the example below is shorter and more 'Kotlin-lie'
+*/
 
 fun String.hasSpaces() = find { it == ' ' } != null
 
