@@ -28,8 +28,10 @@ class Aquarium<out T: WaterSupply> (val waterSupply: T){
         println("adding water from $waterSupply")
 
     }
-
 }
+
+// a reified type is a real type to declare R and make it a real type
+inline fun <reified R: WaterSupply> Aquarium<*>.hasWaterSupplyOfType() = waterSupply is R
 
 interface Cleaner<in T: WaterSupply> {fun clean(waterSupply: T)}
 
@@ -45,6 +47,14 @@ class TapWaterCleaner: Cleaner<TapWater>{
 
 fun addItemTo(aquarium: Aquarium<WaterSupply>) = println("item added")
 
+fun <T: WaterSupply> isWaterClean(aquarium: Aquarium<T>) {
+
+    println("aquarium water is clean: ${aquarium.waterSupply.needsProcessed}")
+
+}
+
+inline fun <reified T: WaterSupply> WaterSupply.isOfType() = this is T
+
 fun genericExample(){
 
     val cleaner = TapWaterCleaner()
@@ -54,10 +64,13 @@ fun genericExample(){
 
     val aquarium2 = Aquarium(LakeWater())
     aquarium2.waterSupply.filter()
-    //aquarium2.addWater(cleaner)
+    //aquarium2.addWater()
 
     val aquarium3 = Aquarium(TapWater())
     aquarium3.addWater(cleaner)
+    isWaterClean(aquarium3)
+    aquarium3.hasWaterSupplyOfType<TapWater>() // true
+    aquarium3.waterSupply.isOfType<LakeWater>() // false
 
 }
  /* In and OUT:
