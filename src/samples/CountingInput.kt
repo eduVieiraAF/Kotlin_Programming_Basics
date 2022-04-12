@@ -20,6 +20,7 @@ fun main() {
         }
     }
 
+    println("__________________________")
     println("$vowels vowel(s)")
     println("$consonants consonant(s)")
     println("$digits digit(s)")
