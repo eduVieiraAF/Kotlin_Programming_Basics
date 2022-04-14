@@ -13,7 +13,7 @@ fun main() {
 }
 /*
 A list of integers and cyclically shifts the elements of the list to the right: A[0] goes to the place of A[1], A[1]
-becomes A[2], ..., and the last element goes to the place of A[0]).
+becomes A[2], ..., and the last element goes to the place of A[0].
 
 The first line of the input contains the number of elements in the list.
 The other lines contain the elements of the list.
