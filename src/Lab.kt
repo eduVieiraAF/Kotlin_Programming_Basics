@@ -1,16 +1,18 @@
+fun main(){
 
-fun main() {
+    val mutList2D = mutableListOf(
+        mutableListOf(0, 1, 2),   //[0]
+        mutableListOf(3, 4, 5)    //[1]
+    )
 
-    var input = readln().toInt()
-    var reversedNum = 0
+    println(mutList2D[0][2]) // will access the 1st list and fetch the last element at index [2]
 
-    while (input != 0) {
+    // -> more examples
 
-        val digit = input % 10
-        reversedNum = reversedNum * 10 + digit
-        input /= 10
-    }
-
-    println("Reversed Number: $reversedNum")
+    println(mutList2D[0][0])  // 0
+    println(mutList2D[0][1])  // 1
+    println(mutList2D[0][2])  // 2
+    println(mutList2D[1][0])  // 3
+    println(mutList2D[1][1])  // 4
+    println(mutList2D[1][2])  // 5
 }
-
