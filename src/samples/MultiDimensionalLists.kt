@@ -57,3 +57,24 @@ fun main(){
     println()
     println(mutList3D) // prints out like -> [[[0, 1], [2, 3]], [[4, 5], [6, 7]]]
 }
+
+fun exercise(){
+    /* You have a 2D list inputList. Print all of its corner elements in the following order:
+            left to right and top to bottom.
+
+    Print the result for two elements in one line. Use a single space to separate two elements on the same line.*/
+
+    val inputList: MutableList<MutableList<String>> = mutableListOf()
+    val n = readLine()!!.toInt()
+    for (i in 0 until n) {
+        val strings = readLine()!!.split(' ').toMutableList()
+        inputList.add(strings)
+    }
+
+    println("${inputList.first().first()} ${inputList.first().last()}")
+    println("${inputList.last().first()} ${inputList.last().last()}")
+
+    /*      OOOR
+    println("${inputList[0][0]} ${inputList[0][n-1]}")
+    println("${inputList[n-1][0]} ${inputList[n-1][n-1]}")     */
+ }
