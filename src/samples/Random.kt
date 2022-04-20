@@ -33,6 +33,12 @@ fun main() {
 
     println()
 
+    throwDice()
+
+    println()
+
+    println( generateTemperature(23) )
+
     /*
     Pseudorandom numbers and seeding
 
@@ -62,4 +68,30 @@ for (i in 0..5) {
     defaultGenerator.nextInt(100)
 }
      */
+}
+
+fun throwDice(): Int {
+
+    return Random.nextInt(1, 7)
+}
+
+/*Temperature generator
+ Medium
+633 users solved this problem. Latest completion was 16 minutes ago.
+Imagine that you were tasked with measuring the water temperature in the aquarium for a week.
+Unfortunately, you forgot about it, and now you need to fake a temperature journal. The normal temperature in the
+aquarium ranges from 20 to 30 degrees (inclusive).
+
+Write a function that gets a seed and returns a string with 7 numbers from 20 to 30 on one line.
+For example: 20 26 21 30 27 23 25 */
+
+fun generateTemperature(seed: Int): String {
+    val randomTemperature: MutableList<Int> = mutableListOf()
+    val randomizer = Random(seed)
+
+    for (day in 0..6) {
+        randomTemperature.add(randomizer.nextInt(20, 31))
+    }
+
+    return randomTemperature.joinToString(" ")
 }
