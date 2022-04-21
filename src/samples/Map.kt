@@ -9,6 +9,7 @@ less noisy. A read-only view of a mutable map can be obtained by casting it to M
 fun main() {
     accountsReport()
     println("••••••••••••••••••••••••••••••••••••••••••••••••••••••••")
+    // updatePointsCredit(readln().toInt()) to take user's input
     updatePointsCredit(1)
     updatePointsCredit(3)
     updatePointsCredit(5)
