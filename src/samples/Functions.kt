@@ -1,4 +1,4 @@
-package OOP
+package samples
 
 fun main(){
 
