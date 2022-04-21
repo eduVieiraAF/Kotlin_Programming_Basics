@@ -35,8 +35,8 @@ fun sample2() {
     val words = listOf("foo", "bar", "baz", "faz")
     val empty = emptyList<String>()
 
-    val first = empty.firstOrNull()                        // 3
-    val last = empty.lastOrNull()                          // 4
+    val first = empty.firstOrNull()
+    val last = empty.lastOrNull()
 
     val firstF = words.firstOrNull { it.startsWith('f') }
     val firstZ = words.firstOrNull { it.startsWith('z') }
