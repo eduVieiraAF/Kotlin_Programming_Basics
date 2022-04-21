@@ -26,8 +26,8 @@ fun main() {
         println("Message → $e")
     }
 
-    println("value1 is $value1")
-    println("value2 is $value2")
-    println("value3 is $value3")
-    println("value4 is $value4")
+    println("value 1 is $value1")
+    println("value 2 is $value2")
+    println("value 3 is $value3")
+    println("value 4 is $value4")
 }
