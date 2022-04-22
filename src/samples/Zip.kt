@@ -17,8 +17,9 @@ fun main() {
     val resultCustom = A.zip(B) {a,b -> "$a:$b"} // [a:1, b:2, c:3]
     val resultCustom2 = A.zip(B) { a, b -> "$a goes with $b"} //[a goes with 1, b goes with 2, c goes with 3]
 
-    println(resulPairs)
-    println(resultReduce)
-    println(resultCustom)
-    println(resultCustom2)
+    println("Merging $A with $B »»»\n")
+    println("Default merge → $resulPairs")
+    println("Reduced merge → $resultReduce")
+    println("Custom merge 1 → $resultCustom")
+    println("Custom merge 2 → $resultCustom2")
 }
