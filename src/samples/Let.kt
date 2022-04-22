@@ -12,10 +12,10 @@ fun customPrint(s: String) {
 
 fun main() {
 
-    val empty = "test".let {               // Calls the given block on the result on the string "test".
+    val empty = "test".let {   // Calls the given block on the result on the string "test".
 
-        customPrint(it)                    // Calls the function on "test" by the 'it' reference.
-        it.isEmpty()                       // let returns the value of this expression.
+        customPrint(it)               // Calls the function on "test" by the 'it' reference.
+        it.isEmpty()             // let returns the value of this expression.
     }
 
     println(" is empty: $empty")
@@ -24,8 +24,8 @@ fun main() {
 
         println("Printing \"$str\":")
 
-        str?.let {                           // Uses safe call, so let and its code block will be executed
-                                             // only on non-null values.
+        str?.let {             // Uses safe call, so let and its code block will be executed
+                                      // only on non-null values.
             print("\t")
             customPrint(it)
             println()
