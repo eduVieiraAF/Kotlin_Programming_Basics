@@ -8,7 +8,7 @@ package samples
 
 var idCount = 3140// should be called from database and whatnot, but it's here to make a point
 
-data class GymMember(var id: Int, var name: String, val age: Int, var plan: Plan)
+data class GymMember(val id: Int, val name: String, val age: Int, val plan: Plan)
 
 fun createLog(m: GymMember) = println("→ A new member \'${m.name}\' was registered.\n" +
         "\t• Member chose a \'${m.plan}\' plan facility access.\n" +
