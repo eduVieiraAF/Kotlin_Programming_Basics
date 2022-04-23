@@ -7,6 +7,7 @@ package samples
  */
 
 var idCount = 3140// should be called from database and whatnot, but it's here to make a point
+val enroll = mutableListOf<String>()
 
 data class GymMember(val id: Int, val name: String, val age: Int, val plan: Plan)
 
@@ -20,16 +21,34 @@ enum class Plan(val description: String){
     PREMIUM ("FULL + personal trainer.")
 }
 
+fun enrollReport() {
+    println("••••••••••••••••••••••••••••••••••••••••••••••••••••••••\n" +
+            "TODAY'S ENROLLMENT:\n")
+    for (i in 0 until enroll.size){
+        println(enroll[i])
+    }
+    println("••••••••••••••••••••••••••••••••••••••••••••••••••••••••")
+}
+
 fun main() {
     val maddie = GymMember(++idCount, // automatically ups idCount as it creates new member
         "Maddie Wilkerson",
         19,
-        Plan.PREMIUM).also { createLog(it) }
+        Plan.PREMIUM).also { createLog(it) }.toString()
+    enroll.add(maddie)
 
     val steve = GymMember(++idCount, // automatically ups idCount as it creates new member
         "Steve Olsen",
-        19,
-        Plan.BASIC).also { createLog(it) }
+        29,
+        Plan.BASIC).also { createLog(it) }.toString()
+    enroll.add(steve)
 
-    println(idCount) // outputs 3142
+    val henry = GymMember(++idCount,
+        "Henry Mendez",
+        23,
+        Plan.FULL).also { createLog(it) }.toString()
+    enroll.add(henry)
+
+    println(idCount) // outputs 3143
+    enrollReport()
 }
