@@ -11,11 +11,13 @@ val enroll = mutableListOf<String>()
 
 data class GymMember(val id: Int, val name: String, val age: Int, val plan: Plan)
 
-fun createLog(m: GymMember) = println("→ A new member \'${m.name}\' was registered.\n" +
+fun createLog(m: GymMember) = println("→ A new member \'($idCount)${m.name}\' was registered.\n" +
         "\t• Member chose a \'${m.plan}\' plan facility access.\n" +
         "\t\t• Plan details: ${m.plan.description}")
 
+@Suppress("SpellCheckingInspection")
 enum class Plan(val description: String){
+    PAYPERDAY("3-hour access on the day."),
     BASIC("16 hours per week."),
     FULL("Unlimited hours."),
     PREMIUM ("FULL + personal trainer.")
@@ -49,6 +51,13 @@ fun main() {
         Plan.FULL).also { createLog(it) }.toString()
     enroll.add(henry)
 
-    println(idCount) // outputs 3143
+    val don = GymMember(++idCount,
+        "Dominic Flinch",
+        31,
+        Plan.PAYPERDAY).also { createLog(it) }.toString()
+    enroll.add(don)
+
+    println()
+    println("ID count: $idCount") // outputs 3144
     enrollReport()
 }
