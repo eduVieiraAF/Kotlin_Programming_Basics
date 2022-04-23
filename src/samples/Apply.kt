@@ -37,4 +37,5 @@ fun main() {
     println(joshDescription)
     println(wendyDescription)
     println(kenDescription)
+    println(josh) // also works
 }
