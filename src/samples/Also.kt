@@ -9,14 +9,14 @@ package samples
 var idCount = 3140// should be called from database and whatnot, but it's here to make a point
 val enroll = mutableListOf<String>()
 
-data class GymMember(val id: Int, val name: String, val age: Int, val plan: Plan1)
+data class GymMember(val id: Int, val name: String, val age: Int, val accessPlan: String, val planDescription: String)
 
 fun createLog(m: GymMember) = println("→ A new member \'($idCount) ${m.name}\' was registered.\n" +
-        "\t• Member chose a \'${m.plan.accessPlan}\' facility access plan.\n" +
-        "\t\t• Plan details: ${m.plan.description}")
+        "\t• Member chose a \'${m.accessPlan}\' facility access plan.\n" +
+        "\t\t• Plan details: ${m.planDescription}")
 
 /*
-@Suppress("SpellCheckingInspection")
+
 enum class Plan(val description: String){
     PAYPERDAY("3-hour access on the day."),
     BASIC("16 hours per week."),
@@ -45,25 +45,29 @@ fun main() {
     val maddie = GymMember(++idCount, // automatically ups idCount as it creates new member
         "Maddie Wilkerson",
         19,
-        Plan1.Premium).also { createLog(it) }.toString()
+        Plan1.Premium.accessPlan,
+        Plan1.Premium.description).also { createLog(it) }.toString()
     enroll.add(maddie)
 
     val steve = GymMember(++idCount, // automatically ups idCount as it creates new member
         "Steve Olsen",
         29,
-        Plan1.Basic).also { createLog(it) }.toString()
+        Plan1.Basic.accessPlan,
+        Plan1.Basic.description).also { createLog(it) }.toString()
     enroll.add(steve)
 
     val henry = GymMember(++idCount,
         "Henry Mendez",
         23,
-        Plan1.Full).also { createLog(it) }.toString()
+        Plan1.Full.accessPlan,
+        Plan1.Full.description).also { createLog(it) }.toString()
     enroll.add(henry)
 
     val don = GymMember(++idCount,
         "Dominic Flinch",
         31,
-        Plan1.PerDay).also { createLog(it) }.toString()
+        Plan1.PerDay.accessPlan,
+        Plan1.PerDay.description).also { createLog(it) }.toString()
     enroll.add(don)
 
     println()
