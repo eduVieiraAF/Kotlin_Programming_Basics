@@ -2,7 +2,7 @@
 
 #  Samples of my learning material and tests.
 - ### In here, there are sample codes and code I've written based on stuff I found on:
-    -  YouTube tutorials;
+    -  YouTube's tutorials;
     -  Udacity Kotlin course;
     -  Codelabs;
     -  JetBrains Academy tracks.
