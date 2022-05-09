@@ -12,10 +12,11 @@ val enroll = mutableListOf<String>()
 data class GymMember(val id: Int, val name: String, val age: Int, val accessPlan: String, val planDescription: String)
 
 fun createLog(m: GymMember) = println("→ A new member \'($idCount) ${m.name}\' was registered.\n" +
-        "\t• Member chose a \'${m.accessPlan}\' facility access plan.\n" +
+        "\t• Member chose the \'${m.accessPlan}\' facility access plan.\n" +
         "\t\t• Plan details: ${m.planDescription}")
 
 /*
+→ Had this work well before changing to sealed class
 
 enum class Plan(val description: String){
     PAYPERDAY("3-hour access on the day."),
@@ -25,11 +26,11 @@ enum class Plan(val description: String){
 }
 */
 
-sealed class Plan1 (val accessPlan: String, val description: String){
-    object PerDay: Plan1("PER_DAY","3-hour access on the day.")
-    object Basic: Plan1("BASIC", "20 hours per week.")
-    object Full : Plan1("FULL","Unlimited hours.")
-    object Premium : Plan1("PREMIUM", "FULL + personal trainer.")
+sealed class Plan (val accessPlan: String, val description: String){
+    object PerDay: Plan("PER_DAY","3-hour access on the day.")
+    object Basic: Plan("BASIC", "20 hours per week.")
+    object Full : Plan("FULL","Unlimited hours.")
+    object Premium : Plan("PREMIUM", "FULL + personal trainer.")
 }
 
 fun enrollReport() {
@@ -45,29 +46,29 @@ fun main() {
     val maddie = GymMember(++idCount, // automatically ups idCount as it creates new member
         "Maddie Wilkerson",
         19,
-        Plan1.Premium.accessPlan,
-        Plan1.Premium.description).also { createLog(it) }.toString()
+        Plan.Premium.accessPlan,
+        Plan.Premium.description).also { createLog(it) }.toString()
     enroll.add(maddie)
 
     val steve = GymMember(++idCount, // automatically ups idCount as it creates new member
         "Steve Olsen",
         29,
-        Plan1.Basic.accessPlan,
-        Plan1.Basic.description).also { createLog(it) }.toString()
+        Plan.Basic.accessPlan,
+        Plan.Basic.description).also { createLog(it) }.toString()
     enroll.add(steve)
 
     val henry = GymMember(++idCount,
         "Henry Mendez",
         23,
-        Plan1.Full.accessPlan,
-        Plan1.Full.description).also { createLog(it) }.toString()
+        Plan.Full.accessPlan,
+        Plan.Full.description).also { createLog(it) }.toString()
     enroll.add(henry)
 
     val don = GymMember(++idCount,
         "Dominic Flinch",
         31,
-        Plan1.PerDay.accessPlan,
-        Plan1.PerDay.description).also { createLog(it) }.toString()
+        Plan.PerDay.accessPlan,
+        Plan.PerDay.description).also { createLog(it) }.toString()
     enroll.add(don)
 
     println()
