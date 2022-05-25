@@ -1,8 +1,8 @@
 package samples
 
-// Removing 1st and last letter using extension function
-
 fun String.removeFirstLastChar(): String =  this.substring(1, this.length - 1)
+
+fun Int.abs(): Int = if (this < 0) -this else this
 
 fun main() {
 
@@ -11,7 +11,10 @@ fun main() {
     val result = myString.removeFirstLastChar()
 
     println("String has been trimmed =  $result")
+
+    println("••••••••••••••••••••••••••••••••")
+    print("Type in a number: ")
+    val num = readln().toInt()
+    println("\"$num\" is the number you enter and \"${num.abs()}\" is its absolute value.")
 }
-
-
 
