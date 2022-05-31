@@ -40,7 +40,7 @@ sealed class Entity {
 
     data class Easy(val id: String, val name: String) : Entity()
     data class Medium(val id: String, val name: String) : Entity()
-    class Hard(val id: String, val name: String, val multiplier: Float) : Entity()
+    data class Hard(val id: String, val name: String, val multiplier: Float) : Entity()
 }
 
 fun main() {
@@ -54,4 +54,11 @@ fun main() {
     }
 
     println(msg)
+
+    val entity1 = Entity.Easy("id", "name")
+    val entity2 = entity1.copy(name = "Edited name") // when using data classes
+    //val entity2 = entity1.copy() // They are equal
+
+
+    if (entity1 == entity2) println("They are equal") else println("They're not equal")
 }
