@@ -13,9 +13,12 @@ interface SessionInfoProvider {
     fun getSessionId(): String
 }
 
-class BasicInfoProvider : PersonInfoProvider, SessionInfoProvider {
+open class BasicInfoProvider : PersonInfoProvider, SessionInfoProvider {
     override val providerInfo: String
         get() = "Basic info provider"
+
+    protected open val sessionPrefix = "Session ID provided"
+    //with 'protected' it's visible only to children classes
 
     override fun printInfo(person: Person) {
         super.printInfo(person)
@@ -23,12 +26,12 @@ class BasicInfoProvider : PersonInfoProvider, SessionInfoProvider {
     }
 
     override fun getSessionId(): String {
-        return "Session ID provided"
+        return sessionPrefix
     }
 }
 
 fun main() {
-    val provider = BasicInfoProvider()
+    val provider = FancyInfoProvider()
 
     provider.printInfo(Person())
     provider.getSessionId()
