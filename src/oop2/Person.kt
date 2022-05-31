@@ -1,13 +1,14 @@
 package oop2
 
-class Person(val firstName: String, val lastName: String) {
+// internal is only accessible within same module
+internal class Person(private val firstName: String, private val lastName: String) {
     init {
         println("Init 1")
     }
 
     constructor(): this("John", "Doe"){ //can be initialized in primary constructor
         //println("Secondary constructor with default values → " +
-                //"\nfirst Name: $firstName\nlast name: $lastName")
+                //"\n first Name: $firstName\n last name: $lastName")
     }
 
     init {
@@ -24,4 +25,10 @@ class Person(val firstName: String, val lastName: String) {
             println("The returned value is $field")
             return field
         }
+
+    fun printInfo() {
+        //val nickNameToPrint = if (nickName != null) nickName else "no nickname"
+        val nickNameToPrint = nickName ?: "no nickname" // code above replaced with the elvis operator → :?
+        println("$firstName ($nickNameToPrint) $lastName")
+    }
 }
