@@ -1,4 +1,4 @@
-package OOP
+package oop
 
 class Dog: Animal("Dog") {
 

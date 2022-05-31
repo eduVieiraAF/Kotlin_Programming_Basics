@@ -1,7 +1,6 @@
-package OOP
+package oop
 
 interface DoColor{
-
     fun doColor()
 }
 

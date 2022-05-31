@@ -1,4 +1,4 @@
-package OOP
+package oop
 
 class Bird: Animal("Bird", 2) {
 

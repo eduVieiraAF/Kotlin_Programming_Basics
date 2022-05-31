@@ -6,7 +6,7 @@ package samples
     actions, such as logging in and call chain.
  */
 
-var idCount = 3140// should be called from database and whatnot, but it's here to make a point
+var idCount = 3140 // should be called from database and whatnot, but it's here to make a point
 val enroll = mutableListOf<String>()
 
 data class GymMember(val id: Int, val name: String, val age: Int, val accessPlan: String, val planDescription: String)

@@ -1,4 +1,4 @@
-package OOP
+package oop
 
 abstract class Animal( val name: String, val legs: Int = 4) {
 
