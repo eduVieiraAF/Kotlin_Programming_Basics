@@ -43,9 +43,16 @@ sealed class Entity {
     data class Hard(val id: String, val name: String, val multiplier: Float) : Entity()
 }
 
+// Extension function && property
+fun Entity.Medium.printInfo() = println("Medium class: $id → via extension function")
+
+val Entity.Medium.info: String
+    get() = "Medium info"
+//endRegion
+
 fun main() {
 //companion objects have access to properties & methods of that enclosing class
-    var entity: Entity = EntityFactory.create(EntityTypes.EASY)
+    val entity: Entity = EntityFactory.create(EntityTypes.EASY)
     val msg = when (entity) {
         is Entity.Easy -> "easy class"
         is Entity.Hard -> "hard class"
@@ -59,6 +66,14 @@ fun main() {
     val entity2 = entity1.copy(name = "Edited name") // when using data classes
     //val entity2 = entity1.copy() // They are equal
 
-
     if (entity1 == entity2) println("They are equal") else println("They're not equal")
+
+    Entity.Medium("id", "name").printInfo()
+    // alternatively
+    val entity3 = EntityFactory.create(EntityTypes.MEDIUM)
+
+    if (entity3 is Entity.Medium) {
+        entity3.printInfo()
+        println(entity3.info)
+    } // smart cast
 }
