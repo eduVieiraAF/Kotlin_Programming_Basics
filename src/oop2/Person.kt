@@ -1,7 +1,7 @@
 package oop2
 
 // internal is only accessible within same module
-internal class Person(private val firstName: String, private val lastName: String) {
+class Person(private val firstName: String, private val lastName: String) {
     init {
         println("Init 1")
     }
