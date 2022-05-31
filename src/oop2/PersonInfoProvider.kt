@@ -31,14 +31,21 @@ open class BasicInfoProvider : PersonInfoProvider, SessionInfoProvider {
 }
 
 fun main() {
-    val provider = FancyInfoProvider()
+    val provider = object : PersonInfoProvider {
+        override val providerInfo: String
+            get() = "New info provider"
+
+        fun getSessionId() = "id"
+
+        //overriding && adding to properties
+    }
 
     provider.printInfo(Person())
     provider.getSessionId()
     checkType(provider)
 }
 
-fun checkType(infoProvider: SessionInfoProvider) {
+fun checkType(infoProvider: PersonInfoProvider) {
     if (infoProvider !is SessionInfoProvider) {
         println("It is not a session info provider")
     } else {
