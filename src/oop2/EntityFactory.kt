@@ -3,35 +3,55 @@ package oop2
 import java.util.*
 
 enum class EntityTypes {
-    EASY, MEDIUM, HARD;
+    HELP, EASY, MEDIUM, HARD;
 
     fun getFormattedName() = name.lowercase()
         .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
 }
 
 object EntityFactory {
-    fun create(type: EntityTypes) : Entity {
+    fun create(type: EntityTypes): Entity {
         val id = UUID.randomUUID().toString()
-        val name = when (type){
+        val name = when (type) {
             EntityTypes.EASY -> type.getFormattedName()
             EntityTypes.MEDIUM -> type.getFormattedName()
             EntityTypes.HARD -> type.getFormattedName()
+            EntityTypes.HELP -> type.getFormattedName()
         }
 
-        return Entity(id, name)
+        return when (type) {
+            EntityTypes.EASY -> Entity.Easy(id, name)
+            EntityTypes.MEDIUM -> Entity.Medium(id, name)
+            EntityTypes.HARD -> Entity.Hard(id, name, 2f)
+            EntityTypes.HELP -> Entity.Help
+        }
     }
 }
-class Entity constructor(val id: String, val name: String) {
+/*class Entity constructor(val id: String, val name: String) {
     override fun toString(): String {
         return "id: $id | name: $name"
     }
+}*/
+
+sealed class Entity {
+    object Help : Entity() {
+        const val name = "Help"
+    }
+
+    data class Easy(val id: String, val name: String) : Entity()
+    data class Medium(val id: String, val name: String) : Entity()
+    class Hard(val id: String, val name: String, val multiplier: Float) : Entity()
 }
 
 fun main() {
 //companion objects have access to properties & methods of that enclosing class
-    val entity = EntityFactory.create(EntityTypes.EASY)
-    println(entity)
+    var entity: Entity = EntityFactory.create(EntityTypes.EASY)
+    val msg = when (entity) {
+        is Entity.Easy -> "easy class"
+        is Entity.Hard -> "hard class"
+        Entity.Help -> "help class"
+        is Entity.Medium -> "medium class"
+    }
 
-    val mediumEntity = EntityFactory.create(EntityTypes.MEDIUM)
-    println(mediumEntity)
+    println(msg)
 }
