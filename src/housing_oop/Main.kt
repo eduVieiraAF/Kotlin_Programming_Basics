@@ -1,6 +1,7 @@
 package housing_oop
 
 fun main() {
+    /*
     val house = House(3, 2.0,"red", 500.00)
     house.hasPool(true)
 
@@ -15,5 +16,24 @@ fun main() {
     val house3 = House(5,4.0,"blue", 650.0, 2)
     house3.hasPool(false)
     house3.hasGarage(3)
+
+    println()*/
+
+    val house4 = House2("Steven", 20, 10.5, "Cyan")
+    house4.ownershipTransfer()
+
+    println()
+
+    val apartment = Apartment(
+        "Eduardo",
+        20,
+        11.5,
+        "teal",
+        20_000.00,
+        mapOf(1 to "Ben Schenkel", 2 to "Nancy Stewart")
+    )
+    apartment.printTenant(1)
+    apartment.printTenant(2)
+    apartment.printTenant(3)
 }
 
