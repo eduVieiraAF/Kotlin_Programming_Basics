@@ -32,8 +32,14 @@ fun main() {
         20_000.00,
         mapOf(1 to "Ben Schenkel", 2 to "Nancy Stewart")
     )
+
+    prettyPrintln("• New owner → ${apartment.owner.capitalized()}\n" +
+            "\t• ${apartment.rooms} rooms\n" +
+            "\t• ${apartment.bathrooms} bathrooms\n" +
+            "\t• with ${apartment.color} colored walls\n" +
+            "\t• sold for ${apartment.showPrice()}")
+
     apartment.printTenant(1)
     apartment.printTenant(2)
     apartment.printTenant(3)
 }
-
