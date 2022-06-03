@@ -1,19 +1,15 @@
 package housing_oop
 
 class House(rooms: Int, color: String) {
-    var color: String
-    val rooms: Int
+    private var color: String
+    private val rooms: Int
 
     init {
         println("Property details\n" +
                 "••••••••••••••••••••••••••••••••••••••••••••••••••••")
-    }
-    init {
         this.color = color
         println("Color → ${this.color.capitalized()}")
-    }
 
-    init {
         this.rooms = rooms
         println("Rooms → ${this.rooms}")
     }
@@ -23,11 +19,17 @@ class House(rooms: Int, color: String) {
     }
 
     constructor(rooms: Int, bathrooms: Double, color: String, hoaFee: Double): this(rooms, color) {
-        println("Bathrooms → $bathrooms\n" +
+            println("Bathrooms → $bathrooms\n" +
                 "Fee → $hoaFee")
     }
 
-    fun hasPool(pool: Boolean) {
-        if (pool) println("Pool included") else println("No pool")
+    constructor(rooms: Int, bathrooms: Double, color: String, hoaFee: Double, storeys: Int): this(rooms, color) {
+        println("Bathrooms → $bathrooms\n" +
+                "Fee → $hoaFee\n" +
+                "$storeys-storey house")
     }
+
+    fun hasPool(pool: Boolean) = if (pool) println("Pool included") else println("No pool")
+
+    fun hasGarage(spots: Int) = println("Parking space for $spots cars.")
 }
