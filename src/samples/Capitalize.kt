@@ -37,5 +37,8 @@ fun main() {
     )
 
     val captain3 = Pirate("edu Vieira", "captain", "james")
-    println("${captain3.name.capitalized()} is a ${captain3.rank.capitalized()}, aka \"${captain3.nick.capitalized()}\"")
+    println(
+        "${captain3.name.capitalized()} is a ${captain3.rank.capitalized()}, aka " +
+                "\"${captain3.nick.capitalized()}\""
+    )
 }
