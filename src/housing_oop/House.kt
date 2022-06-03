@@ -19,13 +19,15 @@ class House(rooms: Int, color: String) {
     }
 
     constructor(rooms: Int, bathrooms: Double, color: String): this(rooms, color) {
-        println("Rooms → $rooms\nBathrooms → $bathrooms\nColor → ${color.capitalized()}")
+        println("nBathrooms → $bathrooms")
     }
 
     constructor(rooms: Int, bathrooms: Double, color: String, hoaFee: Double): this(rooms, color) {
-        println("Rooms → $rooms\n" +
-                "Bathrooms → $bathrooms\n" +
-                "Color → ${color.capitalized()}\n" +
+        println("Bathrooms → $bathrooms\n" +
                 "Fee → $hoaFee")
+    }
+
+    fun hasPool(pool: Boolean) {
+        if (pool) println("Pool included") else println("No pool")
     }
 }
