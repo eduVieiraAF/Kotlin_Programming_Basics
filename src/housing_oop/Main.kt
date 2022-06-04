@@ -94,4 +94,7 @@ fun main() {
     )
     val (name, age) = employee1
     println("Employee's name is $name and age is $age")
+
+    prettyPrintln("Standard rent fee (12-month contract) → ${BuildingUtil.costOfStandardRate(12)}\n" +
+            "Deluxe rent fee (12-month contract) → $${BuildingUtil.costOfDeluxeRate(12)}")
 }
