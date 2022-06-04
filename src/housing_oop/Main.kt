@@ -1,8 +1,8 @@
 package housing_oop
 
 fun main() {
-    /*
-    val house = House(3, 2.0,"red", 500.00)
+
+    val house = House(3, 2.0, "red", 500.00)
     house.hasPool(true)
 
     println()
@@ -13,11 +13,11 @@ fun main() {
 
     println()
 
-    val house3 = House(5,4.0,"blue", 650.0, 2)
+    val house3 = House(5, 4.0, "blue", 650.0, 2)
     house3.hasPool(false)
     house3.hasGarage(3)
 
-    println()*/
+    println()
 
     val house4 = House2("Steven", 20, 10.5, "Cyan")
     house4.ownershipTransfer()
@@ -36,12 +36,14 @@ fun main() {
         mapOf(1 to "Javier Rodriguez", 2 to "Zack Scholz", 3 to "Robert LeBlanc", 4 to "Ingrid Spencer")
     )
 
-    prettyPrintln("• New owner → ${apartment.owner.capitalized()}\n" +
-            "\t• ${apartment.rooms} rooms\n" +
-            "\t• ${apartment.bathrooms} bathrooms\n" +
-            "\t• with ${apartment.color} colored walls\n" +
-            "\t• has ${apartment.floorAmount} floors\n" +
-            "\t• sold for ${apartment.showPrice()}")
+    prettyPrintln(
+        "• New owner → ${apartment.owner.capitalized()}\n" +
+                "\t• ${apartment.rooms} rooms\n" +
+                "\t• ${apartment.bathrooms} bathrooms\n" +
+                "\t• with ${apartment.color} colored walls\n" +
+                "\t• has ${apartment.floorAmount} floors\n" +
+                "\t• sold for ${apartment.showPrice()}"
+    )
 
     apartment.buildingPrompt()
     apartment.promptStatus()
@@ -50,4 +52,27 @@ fun main() {
     apartment.printTenant(1)
     apartment.printTenant(2)
     apartment.printTenant(3)
+
+    prettyPrintln()
+
+    val officeBuilding = OfficeBuilding(
+        "Phoenix tech",
+        6,
+        3.0,
+        "Blue",
+        20_500.0,
+        mapOf(
+            24 to "Silver Dollar",
+            25 to "Monitor Rim",
+            26 to "Switch inc."
+        )
+    ).Storage(
+        mapOf(
+            24 to "Coffee",
+            25 to "GPS units",
+            26 to "automated lights"
+        )
+    )
+    officeBuilding.printStorage(24)
+    officeBuilding.printStorage(26)
 }

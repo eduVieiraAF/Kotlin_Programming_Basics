@@ -7,10 +7,10 @@ fun String.capitalized() = this.replaceFirstChar {
     else it.toString()
 }
 
-fun prettyPrintln(toPrint: Any? = "") {
+fun prettyPrintln(println: Any? = "") {
     println()
     println("•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••")
-    println(toPrint)
+    println(println)
     println("•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••")
     println()
 }
