@@ -30,8 +30,10 @@ fun main() {
         11.5,
         "teal",
         3,
+        "pending",
         20_000.00,
-        mapOf(1 to "Ben Schenkel", 2 to "Nancy Stewart")
+        mapOf(1 to "Ben Schenkel", 2 to "Nancy Stewart"),
+        mapOf(1 to "Javier Rodriguez", 2 to "Zack Scholz", 3 to "Robert LeBlanc", 4 to "Ingrid Spencer")
     )
 
     prettyPrintln("• New owner → ${apartment.owner.capitalized()}\n" +
@@ -42,6 +44,8 @@ fun main() {
             "\t• sold for ${apartment.showPrice()}")
 
     apartment.buildingPrompt()
+    apartment.promptStatus()
+    apartment.staffAmount()
     println()
     apartment.printTenant(1)
     apartment.printTenant(2)
