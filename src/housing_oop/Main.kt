@@ -75,4 +75,23 @@ fun main() {
     )
     officeBuilding.printStorage(24)
     officeBuilding.printStorage(26)
+
+    println()
+
+    val employee1 = Employee("Mitchel Greene", 21)
+    println(employee1.toString())
+    val employee2 = employee1.copy(name = "James Colbert", age = 23)
+    println(employee2.toString())
+    val employee3 = employee1.copy()
+    println(employee3.toString())
+
+    prettyPrintln(
+        "Hash value of employee1 → ${employee1.hashCode()}\n" +
+                "Hash value of employee2 → ${employee2.hashCode()}\n" +
+                "Hash value of employee3 → ${employee3.hashCode()}\n" +           //rather than equals()
+                "Are ${employee1.name} and ${employee2.name} the same object? → ${employee1 == employee2}\n" +
+                "Are ${employee1.name} and ${employee3.name} the same object? → ${employee1 == employee3}"
+    )
+    val (name, age) = employee1
+    println("Employee's name is $name and age is $age")
 }
