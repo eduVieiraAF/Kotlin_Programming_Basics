@@ -29,6 +29,7 @@ fun main() {
         20,
         11.5,
         "teal",
+        3,
         20_000.00,
         mapOf(1 to "Ben Schenkel", 2 to "Nancy Stewart")
     )
@@ -37,8 +38,11 @@ fun main() {
             "\t• ${apartment.rooms} rooms\n" +
             "\t• ${apartment.bathrooms} bathrooms\n" +
             "\t• with ${apartment.color} colored walls\n" +
+            "\t• has ${apartment.floorAmount} floors\n" +
             "\t• sold for ${apartment.showPrice()}")
 
+    apartment.buildingPrompt()
+    println()
     apartment.printTenant(1)
     apartment.printTenant(2)
     apartment.printTenant(3)

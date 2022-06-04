@@ -5,6 +5,7 @@ class Apartment(
     override val rooms: Int,
     override val bathrooms: Double,
     override var color: String,
+    override val floorAmount: Int,
     price: Double,
     tenants: Map<Int, String>
 ): Building(price) {
@@ -14,6 +15,10 @@ class Apartment(
     init {
         this.tenants = tenants
         this.price = price
+    }
+
+    override fun buildingPrompt() {
+        super.buildingPrompt()
     }
 
     fun printTenant(id: Int) {
