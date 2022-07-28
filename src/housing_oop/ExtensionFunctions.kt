@@ -13,3 +13,8 @@ fun prettyPrintln(println: Any? = "") {
     println(println)
     println("•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••")
 }
+
+// Changes int from positive to negative && vice-versa
+fun Int.invert() = (-this)
+fun Double.invert() = (-this)
+fun Float.invert() = (-this)
