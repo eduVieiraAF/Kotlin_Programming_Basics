@@ -18,6 +18,6 @@ fun main() {
     val mid = person1.midName ?: "<Middle name omitted>"
     person1.midName = mid
 
-    prettyPrintln("\t${person1.lastName}, ${person1.firstName} - ${person1.midName}")
-    prettyPrintln("\t${person2.lastName}, ${person2.firstName} - ${person2.midName}")
+    prettyPrintln("\t${person1.lastName}, ${person1.firstName} → ${person1.midName}")
+    prettyPrintln("\t${person2.lastName}, ${person2.firstName} → ${person2.midName}")
 }
