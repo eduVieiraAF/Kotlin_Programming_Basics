@@ -1,5 +1,7 @@
 package samples
 
+import housing_oop.prettyPrintln
+
 /*
     'also' works like 'apply' → it executes a given block and returns the object called. Inside the block, the object
     is referred by 'it', so it's easier to pass it as an argument. This function is handy when embedding additional
@@ -34,12 +36,10 @@ sealed class Plan (val accessPlan: String, val description: String){
 }
 
 fun enrollReport() {
-    println("••••••••••••••••••••••••••••••••••••••••••••••••••••••••\n" +
-            "TODAY'S ENROLLMENT:\n")
+    println("TODAY'S ENROLLMENT:\n")
     for (i in 0 until enroll.size){
-        println(enroll[i])
+        prettyPrintln(enroll[i])
     }
-    println("••••••••••••••••••••••••••••••••••••••••••••••••••••••••")
 }
 
 fun main() {
@@ -71,7 +71,6 @@ fun main() {
         Plan.PerDay.description).also { createLog(it) }.toString()
     enroll.add(don)
 
-    println()
-    println("ID count: $idCount") // outputs 3144
+    prettyPrintln("ID count: $idCount") // outputs 3144
     enrollReport()
 }
