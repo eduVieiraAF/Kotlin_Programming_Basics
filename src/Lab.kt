@@ -1,4 +1,4 @@
-import housing_oop.invert
+import housing_oop.abs
 import housing_oop.prettyPrintln
 
 fun main() {
@@ -6,7 +6,7 @@ fun main() {
     val float = 4.8
     val double = -7.9
 
-    prettyPrintln(int.invert())
-    prettyPrintln(float.invert())
-    prettyPrintln(double.invert())
+    prettyPrintln(int.abs())
+    prettyPrintln(float.abs())
+    prettyPrintln(double.abs())
 }

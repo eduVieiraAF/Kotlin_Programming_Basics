@@ -1,5 +1,7 @@
 package samples
 
+import housing_oop.prettyPrintln
+
 fun format(userName: String, domain: String) = "$userName@$domain"
 
 fun main() {
@@ -11,4 +13,6 @@ fun main() {
     println(format(userName = "foo", domain = "bar.com"))
     // When invoking a function with named arguments, you can specify them in any order you like.
     println(format(domain = "frog.com", userName = "pepe"))
+    
+    prettyPrintln(format("edu_vieira", "yahoo.ca"))
 }
