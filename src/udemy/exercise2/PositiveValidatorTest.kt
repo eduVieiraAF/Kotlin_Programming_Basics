@@ -1,4 +1,4 @@
-package Udemy.exercise2
+package udemy.exercise2
 
 import org.junit.Assert.*
 import org.junit.Test

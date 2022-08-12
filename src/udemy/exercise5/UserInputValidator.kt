@@ -1,4 +1,4 @@
-package Udemy.exercise5
+package udemy.exercise5
 
 class UserInputValidator {
     fun isValidFullName(fullName: String): Boolean {

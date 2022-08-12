@@ -6,4 +6,4 @@
     -  Udacity Kotlin course;
     -  Codelabs;
     -  JetBrains Academy tracks;
-    -  Udemy testing course.
+    -  udemy testing course.
