@@ -1,20 +1,20 @@
 package OOP
 
-abstract class Person(open val name: String, open var age: Int){
+abstract class Person(open val name: String, open var age: Int) {
 
     abstract fun speak()
 
-   fun getBirthYear() = 2021 - age
+    fun getBirthYear() = 2021 - age
 }
 
-class Student(override val name: String, override var age: Int): Person(name, age){
+class Student(override val name: String, override var age: Int) : Person(name, age) {
 
     override fun speak() {
         println("Hey, I'm $name, and I'm a student.")
     }
 }
 
-class Employee(override val name: String, override var age: Int): Person(name, age){
+class Employee(override val name: String, override var age: Int) : Person(name, age) {
 
     override fun speak() {
         println("Hi there! My name's $name and I work here.")
