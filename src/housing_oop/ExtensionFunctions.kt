@@ -15,6 +15,6 @@ fun prettyPrintln(println: Any? = "") {
 }
 
 // Changes int from positive to negative && vice-versa
-fun Int.abs() = (-this)
-fun Double.abs() = (-this)
-fun Float.abs() = (-this)
+fun Int.invert() = -(this)
+fun Double.invert() = -(this)
+fun Float.invert() = -(this)

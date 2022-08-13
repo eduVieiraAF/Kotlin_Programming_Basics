@@ -1,6 +1,6 @@
 package samples
 
-fun main(){
+fun main() {
 
     val mutList2D = mutableListOf(
         mutableListOf(0, 1, 2),   //[0]
@@ -46,8 +46,8 @@ fun main(){
     println(mutListOfVariousTypes2D[2])
 
     val mutList3D = mutableListOf(
-        mutableListOf(mutableListOf(0,1), mutableListOf(2,3)),
-        mutableListOf(mutableListOf(4,5), mutableListOf(6,7))
+        mutableListOf(mutableListOf(0, 1), mutableListOf(2, 3)),
+        mutableListOf(mutableListOf(4, 5), mutableListOf(6, 7))
     )
 
     /*The following code creates the three-dimensional mutable list, here's a representation
@@ -58,7 +58,7 @@ fun main(){
     println(mutList3D) // prints out like -> [[[0, 1], [2, 3]], [[4, 5], [6, 7]]]
 }
 
-fun exercise(){
+fun exercise() {
     /* You have a 2D list inputList. Print all of its corner elements in the following order:
             left to right and top to bottom.
 
@@ -77,4 +77,4 @@ fun exercise(){
     /*      OOOR
     println("${inputList[0][0]} ${inputList[0][n-1]}")
     println("${inputList[n-1][0]} ${inputList[n-1][n-1]}")     */
- }
+}
