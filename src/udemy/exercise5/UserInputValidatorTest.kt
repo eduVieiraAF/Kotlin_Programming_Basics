@@ -20,13 +20,13 @@ class UserInputValidatorTest {
         assertFalse(result)
     }
 
-    @Test // It's supposed to fail
+    @Test // ! It's supposed to fail
     fun `isValidFullName has valid username returns true`() {
         val result = sut.isValidUsername("validUsername")
         assertTrue(result)
     }
 
-    @Test // It's supposed to fail
+    @Test // ! It's supposed to fail
     fun `isValidFullName has invalid username returns false`() {
         val result = sut.isValidUsername("validUsername")
         assertTrue(result)

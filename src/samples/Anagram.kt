@@ -1,5 +1,7 @@
 package samples
 
+import housing_oop.capitalized
+
 fun main() {
 
     val str1 = readln().lowercase()
@@ -11,9 +13,9 @@ fun main() {
         val sortedSet1 = str1.toSortedSet()
         val sortedSet2 = str2.toSortedSet()
 
-        if (sortedSet1 == sortedSet2) println("$str1 and $str2 are an anagram.")
-        else println("$str1 and $str2 are NOT an anagram.")
+        if (sortedSet1 == sortedSet2) println("${str1.capitalized()} and ${str2.capitalized()} are an anagram.")
+        else println("${str1.capitalized()} and ${str2.capitalized()} are NOT an anagram.")
    }
 
-   else println("$str1 and $str2 are NOT an anagram.")
+   else println("${str1.capitalized()} and ${str2.capitalized()} are NOT an anagram.")
 }
