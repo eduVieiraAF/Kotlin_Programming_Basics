@@ -1,6 +1,6 @@
 package udemy.exercise3
 
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class StringReverserTest {
@@ -13,7 +13,7 @@ class StringReverserTest {
     }
 
     @Test
-    fun `reverse fun with single char resturns same char`() {
+    fun `reverse fun with single char returns same char`() {
         val result = sut.reverse("e")
         assertEquals(result, "e")
     }

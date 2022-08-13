@@ -1,11 +1,12 @@
 package udemy.exercise2
 
-import org.junit.Assert.*
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class PositiveValidatorTest {
     @Test
-    fun zeroReturnsFalse(){
+    fun zeroReturnsFalse() {
         val zero = PositiveValidator()
         zero.isPositive(0)
         assertFalse(zero.toString(), false)
