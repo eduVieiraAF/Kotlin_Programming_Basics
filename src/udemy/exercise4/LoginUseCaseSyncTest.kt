@@ -13,9 +13,7 @@ class LoginUseCaseSyncTest {
         const val AUTH_TOKEN = "authToken"
     }
 
-
-
-//*••••••••••••••••HELPER•CLASSES••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+// *••••••••••••••••HELPER•CLASSES••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
     class LoginHttpEndpointSyncTd(
             private var mUsername: String,
