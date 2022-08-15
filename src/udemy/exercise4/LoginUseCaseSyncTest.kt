@@ -17,6 +17,7 @@ class LoginUseCaseSyncTest {
     private var mAuthTokenCacheTd: AuthTokenCacheTd? = null
     private var mEventBusPosterTd: EventBusPosterTd? = null
     private var SUT: LoginUseCaseSync? = null
+
     @Before
     fun setup() {
         mLoginHttpEndpointSyncTd = LoginHttpEndpointSyncTd()
@@ -133,6 +134,7 @@ class LoginUseCaseSyncTest {
         override fun loginSync(username: String?, password: String?): LoginHttpEndpointSync.EndpointResult {
             mUsername = username
             mPassword = password
+
             return if (mIsGeneralError) {
                 LoginHttpEndpointSync.EndpointResult(
                         LoginHttpEndpointSync.EndpointResultStatus.GENERAL_ERROR,
@@ -158,6 +160,7 @@ class LoginUseCaseSyncTest {
 
     class AuthTokenCacheTd : AuthTokenCache {
         private var mAuthToken: String? = null
+
         override fun cacheAuthToken(authToken: String) {
             mAuthToken = "authToken"
         }
@@ -170,6 +173,7 @@ class LoginUseCaseSyncTest {
     class EventBusPosterTd : EventBusPoster {
         var mEvent: Any? = null
         var mInteractionCount = 0
+
         override fun postEvent(event: LoggedInEvent) {
             mInteractionCount++
             mEvent = event
