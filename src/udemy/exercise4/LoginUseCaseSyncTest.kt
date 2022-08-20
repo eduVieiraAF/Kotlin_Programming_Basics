@@ -63,7 +63,10 @@ class LoginUseCaseSyncTest {
     @Test
     fun loginSync_success_loggedInEventPosted() {
         SUT!!.loginSync(USERNAME, PASSWORD)
-        MatcherAssert.assertThat(mEventBusPosterTd!!.mEvent, CoreMatchers.`is`(CoreMatchers.instanceOf(LoggedInEvent::class.java)))
+        MatcherAssert.assertThat(
+            mEventBusPosterTd!!.mEvent,
+            CoreMatchers.`is`(CoreMatchers.instanceOf(LoggedInEvent::class.java))
+        )
     }
 
     @Test
@@ -122,6 +125,7 @@ class LoginUseCaseSyncTest {
     }
 
     //*••••••••••••••••HELPER CLASSES••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
     class LoginHttpEndpointSyncTd : LoginHttpEndpointSync {
         var mUsername: String? = null
         var mPassword: String? = null
@@ -137,18 +141,18 @@ class LoginUseCaseSyncTest {
 
             return if (mIsGeneralError) {
                 LoginHttpEndpointSync.EndpointResult(
-                        LoginHttpEndpointSync.EndpointResultStatus.GENERAL_ERROR,
-                        ""
+                    LoginHttpEndpointSync.EndpointResultStatus.GENERAL_ERROR,
+                    ""
                 )
             } else if (mIsAuthError) {
                 LoginHttpEndpointSync.EndpointResult(
-                        LoginHttpEndpointSync.EndpointResultStatus.AUTH_ERROR,
-                        ""
+                    LoginHttpEndpointSync.EndpointResultStatus.AUTH_ERROR,
+                    ""
                 )
             } else if (mIsServerError) {
                 LoginHttpEndpointSync.EndpointResult(
-                        LoginHttpEndpointSync.EndpointResultStatus.SERVER_ERROR,
-                        ""
+                    LoginHttpEndpointSync.EndpointResultStatus.SERVER_ERROR,
+                    ""
                 )
             } else if (mIsNetworkError) {
                 throw NetworkErrorExceptions()
