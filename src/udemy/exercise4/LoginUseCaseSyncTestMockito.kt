@@ -1,3 +1,5 @@
+@file:Suppress("FunctionName")
+
 package udemy.exercise4
 
 import org.junit.Before
@@ -38,7 +40,7 @@ class LoginUseCaseSyncTestMockito {
 
     // endregion helper fields
 
-    lateinit var SUT: LoginUseCaseSync
+    private lateinit var SUT: LoginUseCaseSync
 
     @Before
     fun setup() {
@@ -56,13 +58,13 @@ class LoginUseCaseSyncTestMockito {
     @Throws(Exception::class)
     @Test
     fun `return success if username and password pass to endpoint with loginSync`() {
-        var ac = ArgumentCaptor.forClass(String::class.java)
+        val ac = ArgumentCaptor.forClass(String::class.java)
         SUT.loginSync(USERNAME, PASSWORD)
         verify(mLoginHttpEndpointSyncMock, times(1))
             ?.loginSync(ac.capture().toString(), ac.capture().toString())
-        var captures: MutableList<String>? = ac.allValues
+        val captures: MutableList<String>? = ac.allValues
         assertEquals<Any?>(captures?.get(0), USERNAME)
-
+        assertEquals<Any?>(captures?.get(1), PASSWORD)
     }
 
 
