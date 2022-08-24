@@ -7,10 +7,10 @@ import udemy.exercise4.networking.LoginHttpEndpointSync
 import udemy.exercise4.networking.NetworkErrorExceptions
 
 class LoginUseCaseSync(
-    private var mLoginHttpEndpointSync: LoginHttpEndpointSync,
-    private var mAuthTokenCache: AuthTokenCache,
-    private var mEventBusPoster: EventBusPoster
-    ) {
+    private var mLoginHttpEndpointSync: LoginHttpEndpointSync?,
+    private var mAuthTokenCache: AuthTokenCache?,
+    private var mEventBusPoster: EventBusPoster?
+) {
     enum class UseCaseResult {
         SUCCESS,
         FAILURE,
@@ -29,14 +29,14 @@ class LoginUseCaseSync(
 
     fun loginSync(username: String?, password: String?): UseCaseResult {
         val endpointEndpointResult: LoginHttpEndpointSync.EndpointResult? = try {
-            mLoginHttpEndpointSync.loginSync(username, password)
+            mLoginHttpEndpointSync?.loginSync(username, password)
         } catch (e: NetworkErrorExceptions) {
             return UseCaseResult.NETWORK_ERROR
         }
 
         return if (endpointEndpointResult?.let { isSuccessfulEndpointResult(it) } == true) {
-            mAuthTokenCache.cacheAuthToken(endpointEndpointResult.getAuthToken())
-            mEventBusPoster.postEvent(LoggedInEvent())
+            mAuthTokenCache?.cacheAuthToken(endpointEndpointResult.getAuthToken())
+            mEventBusPoster?.postEvent(LoggedInEvent())
             UseCaseResult.SUCCESS
         } else {
             UseCaseResult.FAILURE

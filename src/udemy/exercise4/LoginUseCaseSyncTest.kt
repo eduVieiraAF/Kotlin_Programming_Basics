@@ -124,7 +124,7 @@ class LoginUseCaseSyncTest {
         assertEquals(result, LoginUseCaseSync.UseCaseResult.NETWORK_ERROR)
     }
 
-    //*••••••••••••••••HELPER CLASSES••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+    //* ••••••••••••••••HELPER CLASSES••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
     class LoginHttpEndpointSyncTd : LoginHttpEndpointSync {
         var mUsername: String? = null
