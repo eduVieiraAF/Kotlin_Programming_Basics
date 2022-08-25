@@ -2,6 +2,7 @@
 
 package udemy.exercise4
 
+import org.hamcrest.core.IsInstanceOf.instanceOf
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -11,24 +12,17 @@ import org.mockito.Mockito.*
 import org.mockito.runners.MockitoJUnitRunner
 import udemy.exercise4.authtoken.AuthTokenCache
 import udemy.exercise4.eventbus.EventBusPoster
+import udemy.exercise4.eventbus.LoggedInEvent
 import udemy.exercise4.networking.LoginHttpEndpointSync
-import udemy.exercise4.networking.LoginHttpEndpointSync.EndpointResultStatus.SUCCESS
-import udemy.exercise4.networking.NetworkErrorExceptions
+import udemy.exercise4.networking.LoginHttpEndpointSync.EndpointResultStatus.*
+import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
 import kotlin.test.assertEquals
+import kotlin.test.assertIs
 
 @RunWith(MockitoJUnitRunner::class)
 class LoginUseCaseSyncTestMockito {
 
-    // region Constants
-    companion object {
-        const val USERNAME = "username"
-        const val PASSWORD = "password"
-        const val AUTH_TOKEN = "authToken"
-    }
 
-    // endregion Constants
-
-    // region helper fields
     @Mock
     var mLoginHttpEndpointSyncMock: LoginHttpEndpointSync? = null
 
@@ -37,8 +31,6 @@ class LoginUseCaseSyncTestMockito {
 
     @Mock
     var mEventBusPosterMock: EventBusPoster? = null
-
-    // endregion helper fields
 
     private lateinit var SUT: LoginUseCaseSync
 
@@ -53,9 +45,7 @@ class LoginUseCaseSyncTestMockito {
         success()
     }
 
-
-
-    @Throws(Exception::class)
+    @kotlin.jvm.Throws(Exception::class)
     @Test
     fun `return success if username and password pass to endpoint with loginSync`() {
         val ac = ArgumentCaptor.forClass(String::class.java)
@@ -67,19 +57,76 @@ class LoginUseCaseSyncTestMockito {
         assertEquals<Any?>(captures?.get(1), PASSWORD)
     }
 
-
-    // helper methods
-    @Throws(NetworkErrorExceptions::class)
-    private fun success() {
-        `when`(mLoginHttpEndpointSyncMock?.loginSync(any(String::class.java), any(String::class.java)))
-            .thenReturn(LoginHttpEndpointSync.EndpointResult(
-                SUCCESS, AUTH_TOKEN)
-        )
+    @kotlin.jvm.Throws(Exception::class)
+    @Test
+    fun `cache authToken when loginSync is successful`() {
+        val ac = ArgumentCaptor.forClass(String::class.java)
+        SUT.loginSync(USERNAME, AUTH_TOKEN)
+        verify(mAuthTokenCacheMock)?.cacheAuthToken(ac.capture())
+        assertEquals(ac.value, AUTH_TOKEN)
     }
 
-    // endregion helper methods
+    @kotlin.jvm.Throws(Exception::class)
+    @Test
+    fun `authToken not cached due to general error in loginSync`() {
+        generalError()
+        SUT.loginSync(USERNAME, PASSWORD)
+        verifyZeroInteractions(mAuthTokenCacheMock)
+    }
 
-    // region helper classes
+    @kotlin.jvm.Throws(Exception::class)
+    @Test
+    fun `authToken not cached due to auth error in loginSync`() {
+        authError()
+        SUT.loginSync(USERNAME, AUTH_TOKEN)
+        verifyNoMoreInteractions(mAuthTokenCacheMock)
+    }
 
-    // endregion helper classes
+    @kotlin.jvm.Throws(Exception::class)
+    @Test
+    fun `authToken not cached due to server error in loginSync`() {
+        serverError()
+        SUT.loginSync(USERNAME, AUTH_TOKEN)
+        verifyNoMoreInteractions(mAuthTokenCacheMock)
+    }
+
+    @kotlin.jvm.Throws(Exception::class)
+    @Test
+    fun `Event Poster Login is successful with loginSync`() {
+        val ac = ArgumentCaptor.forClass(Object::class.java)
+        SUT.loginSync(USERNAME, PASSWORD)
+        assertIs<JvmType.Object>(ac.value, LoggedInEvent::class.java.toString())
+    }
+
+    // * ---------- helper methods && companion object -----------------------------------------------------
+
+    @kotlin.jvm.Throws(Exception::class)
+    private fun success() {
+        `when`(mLoginHttpEndpointSyncMock?.loginSync(any(String::class.java), any(String::class.java)))
+            .thenReturn(LoginHttpEndpointSync.EndpointResult(SUCCESS, AUTH_TOKEN))
+    }
+
+    @kotlin.jvm.Throws(Exception::class)
+    private fun generalError() {
+        `when`(mLoginHttpEndpointSyncMock?.loginSync(any(String::class.java), any(String::class.java)))
+            .thenReturn(LoginHttpEndpointSync.EndpointResult(GENERAL_ERROR, ""))
+    }
+
+    @kotlin.jvm.Throws(Exception::class)
+    private fun authError() {
+        `when`(mLoginHttpEndpointSyncMock?.loginSync(any(String::class.java), any(String::class.java)))
+            .thenReturn(LoginHttpEndpointSync.EndpointResult(AUTH_ERROR, ""))
+    }
+
+    @kotlin.jvm.Throws(Exception::class)
+    private fun serverError() {
+        `when`(mLoginHttpEndpointSyncMock?.loginSync(any(String::class.java), any(String::class.java)))
+            .thenReturn(LoginHttpEndpointSync.EndpointResult(SERVER_ERROR, ""))
+    }
+
+    companion object {
+        const val USERNAME = "username"
+        const val PASSWORD = "password"
+        const val AUTH_TOKEN = "authToken"
+    }
 }
