@@ -178,7 +178,7 @@ class LoginUseCaseSyncTest {
         var mEvent: Any? = null
         var mInteractionCount = 0
 
-        override fun postEvent(event: LoggedInEvent) {
+        override fun postEvent(event: String) {
             mInteractionCount++
             mEvent = event
         }

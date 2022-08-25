@@ -36,7 +36,7 @@ class LoginUseCaseSync(
 
         return if (endpointEndpointResult?.let { isSuccessfulEndpointResult(it) } == true) {
             mAuthTokenCache?.cacheAuthToken(endpointEndpointResult.getAuthToken())
-            mEventBusPoster?.postEvent(LoggedInEvent())
+            mEventBusPoster?.postEvent(LoggedInEvent().toString())
             UseCaseResult.SUCCESS
         } else {
             UseCaseResult.FAILURE
