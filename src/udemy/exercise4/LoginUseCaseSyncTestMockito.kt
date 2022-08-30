@@ -34,9 +34,9 @@ class LoginUseCaseSyncTestMockito {
     @Throws(Exception::class)
     fun setup() {
         SUT = LoginUseCaseSync(
-            mLoginHttpEndpointSyncMock,
-            mAuthTokenCacheMock,
-            mEventBusPosterMock
+                mLoginHttpEndpointSyncMock,
+                mAuthTokenCacheMock,
+                mEventBusPosterMock
         )
         success()
     }
@@ -47,7 +47,7 @@ class LoginUseCaseSyncTestMockito {
         val ac = ArgumentCaptor.forClass(String::class.java)
         SUT?.loginSync(USERNAME, PASSWORD)
         verify(mLoginHttpEndpointSyncMock, times(1))
-            ?.loginSync(ac.capture().toString(), ac.capture().toString())
+                ?.loginSync(ac.capture(), ac.capture())
         val captures = ac.allValues
         assertEquals(captures[0], USERNAME)
         assertEquals(captures[1], PASSWORD)
@@ -92,11 +92,11 @@ class LoginUseCaseSyncTestMockito {
         verify(mEventBusPosterMock)?.postEvent(ac.capture().toString())
         @Suppress("DEPRECATION")
         Assert.assertThat(
-            ac.value, CoreMatchers.`is`(
+                ac.value, CoreMatchers.`is`(
                 CoreMatchers.instanceOf(
-                    LoggedInEvent::class.java
+                        LoggedInEvent::class.java
                 )
-            )
+        )
         )
     }
 
@@ -166,78 +166,78 @@ class LoginUseCaseSyncTestMockito {
     @Throws(Exception::class)
     private fun networkError() {
         doThrow(NetworkErrorExceptions())
-            .`when`(mLoginHttpEndpointSyncMock)?.loginSync(
-                Matchers.any(String::class.java), Matchers.any(
-                    String::class.java
+                .`when`(mLoginHttpEndpointSyncMock)?.loginSync(
+                        Matchers.any(String::class.java), Matchers.any(
+                        String::class.java
                 )
-            )
+                )
     }
 
     @Throws(NetworkErrorExceptions::class)
     private fun success() {
         `when`(
-            mLoginHttpEndpointSyncMock?.loginSync(
-                any(String::class.java), any(
-                    String::class.java
+                mLoginHttpEndpointSyncMock?.loginSync(
+                        any(String::class.java), any(
+                        String::class.java
                 )
-            )
+                )
         )
-            .thenReturn(
-                LoginHttpEndpointSync.EndpointResult(
-                    LoginHttpEndpointSync.EndpointResultStatus.SUCCESS, AUTH_TOKEN
+                .thenReturn(
+                        LoginHttpEndpointSync.EndpointResult(
+                                LoginHttpEndpointSync.EndpointResultStatus.SUCCESS, AUTH_TOKEN
+                        )
                 )
-            )
     }
 
     @Throws(Exception::class)
     private fun generalError() {
         `when`(
-            mLoginHttpEndpointSyncMock?.loginSync(
-                any(String::class.java), any(
-                    String::class.java
+                mLoginHttpEndpointSyncMock?.loginSync(
+                        any(String::class.java), any(
+                        String::class.java
                 )
-            )
+                )
         )
-            .thenReturn(
-                LoginHttpEndpointSync.EndpointResult(
-                    LoginHttpEndpointSync.EndpointResultStatus.GENERAL_ERROR,
-                    ""
+                .thenReturn(
+                        LoginHttpEndpointSync.EndpointResult(
+                                LoginHttpEndpointSync.EndpointResultStatus.GENERAL_ERROR,
+                                ""
+                        )
                 )
-            )
     }
 
     @Throws(Exception::class)
     private fun authError() {
         `when`(
-            mLoginHttpEndpointSyncMock?.loginSync(
-                any(String::class.java), any(
-                    String::class.java
+                mLoginHttpEndpointSyncMock?.loginSync(
+                        any(String::class.java), any(
+                        String::class.java
                 )
-            )
+                )
         )
-            .thenReturn(
-                LoginHttpEndpointSync.EndpointResult(
-                    LoginHttpEndpointSync.EndpointResultStatus.AUTH_ERROR,
-                    ""
+                .thenReturn(
+                        LoginHttpEndpointSync.EndpointResult(
+                                LoginHttpEndpointSync.EndpointResultStatus.AUTH_ERROR,
+                                ""
+                        )
                 )
-            )
     }
 
     @Throws(Exception::class)
     private fun serverError() {
         `when`(
-            mLoginHttpEndpointSyncMock?.loginSync(
-                any(String::class.java), any(
-                    String::class.java
+                mLoginHttpEndpointSyncMock?.loginSync(
+                        any(String::class.java), any(
+                        String::class.java
                 )
-            )
+                )
         )
-            .thenReturn(
-                LoginHttpEndpointSync.EndpointResult(
-                    LoginHttpEndpointSync.EndpointResultStatus.SERVER_ERROR,
-                    ""
+                .thenReturn(
+                        LoginHttpEndpointSync.EndpointResult(
+                                LoginHttpEndpointSync.EndpointResultStatus.SERVER_ERROR,
+                                ""
+                        )
                 )
-            )
     }
 
     companion object {
