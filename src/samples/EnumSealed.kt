@@ -1,8 +1,8 @@
 package samples
 
 fun main() {
-    var c1 = Father.Child1
-    var c2 = Father.Child2
+    val c1: Father.Child1 = Father.Child1
+    val c2 = Father.Child2
     family(c1)
     family(c2)
 }
