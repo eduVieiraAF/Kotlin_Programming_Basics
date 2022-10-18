@@ -14,6 +14,9 @@ fun main() {
     // same thing one more time
     println( Random.nextDouble() )
 
+    val list = listOf(1, 3, 4, 8, 9)
+    print("→ ${list.random()}")
+
     println()
 
 // CUSTOM RANGES
