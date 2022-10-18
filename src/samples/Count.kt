@@ -11,4 +11,5 @@ fun main() {
     prettyPrintln("Total number of elements: $totalCount")
     prettyPrintln("Number of even elements: $evenCount")
     prettyPrintln("Number of positive elements: $positiveCount")
+    prettyPrintln("Original list: $numbers")
 }
