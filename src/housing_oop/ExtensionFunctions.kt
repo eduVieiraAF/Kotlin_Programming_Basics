@@ -18,3 +18,7 @@ fun prettyPrintln(println: Any? = "") {
 fun Int.invert() = -(this)
 fun Double.invert() = -(this)
 fun Float.invert() = -(this)
+
+fun isNumber(check:String): Boolean {
+    return check.all { char -> char.isDigit() }
+}
