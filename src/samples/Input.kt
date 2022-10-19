@@ -1,7 +1,6 @@
 package samples
 
 import housing_oop.prettyPrintln
-import java.lang.Character.isDigit
 
 fun main() {
 
