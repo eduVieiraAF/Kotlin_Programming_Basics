@@ -1,5 +1,6 @@
 package samples
 
+import housing_oop.prettyPrintln
 import kotlin.random.Random
 
 fun main() {
@@ -71,6 +72,8 @@ for (i in 0..5) {
     defaultGenerator.nextInt(100)
 }
      */
+
+    shuffledIntGenerator()
 }
 
 fun throwDice(): Int {
@@ -97,4 +100,14 @@ fun generateTemperature(seed: Int): String {
     }
 
     return randomTemperature.joinToString(" ")
+}
+
+
+// it's possible to shuffle random numbers
+fun shuffledIntGenerator() {
+    val number: MutableList<Int> = mutableListOf()
+        for (i in 1..6) {
+            number.add(Random.nextInt(1, 60))
+    }
+    prettyPrintln("LOTTERY NUMBERS\n${number.shuffled()}")
 }
