@@ -1,7 +1,12 @@
+package samples
+
 fun main() {
     val numbers = listOf(1,2,3,4,5,6,7)
     println(reverse(numbers))
     println(reverse2(numbers))
+
+    val name = ""
+    println(name.ifEmpty { "Edu" })
 }
 fun reverse(list: List<Int>): List<Int>{
     val result = arrayListOf<Int>()
