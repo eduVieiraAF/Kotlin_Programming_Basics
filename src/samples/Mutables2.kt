@@ -21,5 +21,11 @@ fun main() {
     mutableMap[5] = "e" // also → mutableMap.put(5, "Android")
     mutableMap.forEach { (i, e) -> prettyPrintln("$e at index $i") }
 
+    // creates a list of n size with same elements
+    val list = MutableList(10) { "*" }
+    println(list)
 
+    // creates a list with a lambda
+    val list2 = MutableList(10) { index -> 5 * index }
+    println(list2)
 }
