@@ -106,7 +106,7 @@ fun generateTemperature(seed: Int): String {
 // it's possible to shuffle random numbers
 fun shuffledIntGenerator() {
     val number: MutableList<Int> = mutableListOf()
-        for (i in 1..6) {
+        for (i in 0..5) {
             number.add(Random.nextInt(1, 60))
     }
     prettyPrintln("LOTTERY NUMBERS\n${number.shuffled()}")
