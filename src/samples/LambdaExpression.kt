@@ -1,7 +1,5 @@
 package samples
 
-import housing_oop.prettyPrintln
-
 val lambdaExpression1 = { prettyPrintln("Lambda Expression #1") }
 
 val lambdaExpression2 = { message: String -> prettyPrintln("$message → from lambda expression #2") }

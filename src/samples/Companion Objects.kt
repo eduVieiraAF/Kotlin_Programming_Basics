@@ -1,7 +1,5 @@
 package samples
 
-import housing_oop.prettyPrintln
-
 class Person {
     // name of companion object can be omitted
     companion object /*Test*/ {

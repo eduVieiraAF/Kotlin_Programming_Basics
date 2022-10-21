@@ -1,6 +1,5 @@
 package samples
 
-import housing_oop.capitalized
 import java.util.*
 
 class Pirate(var name: String, var rank: String, var nick: String)

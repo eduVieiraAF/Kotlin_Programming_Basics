@@ -1,7 +1,5 @@
 package samples
 
-import housing_oop.prettyPrintln
-
 fun main() {
     val numbers = listOf(1, -2, 3, -4, 5, -6)
     val totalCount = numbers.count()

@@ -5,8 +5,8 @@ package samples
 referenced by 'this'. This function is handy for initializing objects.
  */
 
-data class StaffMember(var name: String, var age: Int, var job: String, var credentials: Int){
-    constructor(): this("", 0, "", 0)
+data class StaffMember(var name: String, var age: Int, var job: String, var credentials: Int) {
+    constructor() : this("", 0, "", 0)
 }
 
 fun main() {

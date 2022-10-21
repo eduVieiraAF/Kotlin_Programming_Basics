@@ -1,7 +1,5 @@
 package samples
 
-import housing_oop.prettyPrintln
-
 // the Elvis operator
 
 class Elvis(

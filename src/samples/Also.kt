@@ -1,7 +1,5 @@
 package samples
 
-import housing_oop.prettyPrintln
-
 /*
     'also' works like 'apply' → it executes a given block and returns the object called. Inside the block, the object
     is referred by 'it', so it's easier to pass it as an argument. This function is handy when embedding additional

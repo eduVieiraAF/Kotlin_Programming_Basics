@@ -1,8 +1,5 @@
 package samples
 
-import housing_oop.isNumber
-import housing_oop.prettyPrintln
-
 fun main() {
     while (true) {
         print("Enter your name: ")

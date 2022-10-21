@@ -1,19 +1,19 @@
 package example
 
-fun labels(){
+fun labels() {
 
-    outerLoop@ for (i in 1..100){
+    outerLoop@ for (i in 1..100) {
 
         print("$i ")
 
-        for (j in 1..100){
+        for (j in 1..100) {
 
             if (i > 10) break@outerLoop
         }
     }
 }
 
-fun main(){
+fun main() {
 
     labels()
 }

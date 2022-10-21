@@ -1,19 +1,18 @@
 package samples
 
-import housing_oop.prettyPrintln
 import kotlin.random.Random
 
 fun main() {
     // generates an integer value between Int.MIN_VALUE and Int.MAX_VALUE (inclusive)
-    println( Random.nextInt() )
+    println(Random.nextInt())
     // generates a long value between Long.MIN_VALUE and Long.MAX_VALUE (inclusive).
-    println( Random.nextLong() )
+    println(Random.nextLong())
     // generates a float value between 0 (inclusive) and 1.0 (exclusive)
-    println( Random.nextFloat() )
+    println(Random.nextFloat())
     // generates a double value between 0 (inclusive) and 1.0 (exclusive)
-    println( Random.nextDouble() )
+    println(Random.nextDouble())
     // same thing one more time
-    println( Random.nextDouble() )
+    println(Random.nextDouble())
 
     val list = listOf(1, 3, 4, 8, 9)
     print("→ ${list.random()}")
@@ -23,17 +22,17 @@ fun main() {
 // CUSTOM RANGES
 
 // generates a non-negative integer value less than 100
-    println( Random.nextInt(100) )
+    println(Random.nextInt(100))
 // generates an integer value between 1 (inclusive) and 100 (exclusive)
-    println( Random.nextInt(1, 100) )
+    println(Random.nextInt(1, 100))
 // generates a non-negative long value less than 100
-    println( Random.nextLong(100) )
+    println(Random.nextLong(100))
 // generates a long value between 1 (inclusive) and 100 (exclusive)
-    println( Random.nextLong(1, 100) )
+    println(Random.nextLong(1, 100))
 // generates a non-negative double value less than 5.0
-    println( Random.nextDouble(5.0) )
+    println(Random.nextDouble(5.0))
 // generates a double value between 0.0 (inclusive) and 5.0 (exclusive)
-    println( Random.nextDouble(0.0, 5.0))
+    println(Random.nextDouble(0.0, 5.0))
 
     println()
 
@@ -41,7 +40,7 @@ fun main() {
 
     println()
 
-    println( generateTemperature(23) )
+    println(generateTemperature(23))
 
     /*
     Pseudorandom numbers and seeding
@@ -106,8 +105,8 @@ fun generateTemperature(seed: Int): String {
 // it's possible to shuffle random numbers
 fun shuffledIntGenerator() {
     val number: MutableList<Int> = mutableListOf()
-        for (i in 0..5) {
-            number.add(Random.nextInt(1, 60))
+    for (i in 0..5) {
+        number.add(Random.nextInt(1, 60))
     }
     prettyPrintln("LOTTERY NUMBERS\n${number.shuffled()}")
 }

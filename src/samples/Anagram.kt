@@ -1,7 +1,5 @@
 package samples
 
-import housing_oop.capitalized
-
 fun main() {
 
     val str1 = readln().lowercase()

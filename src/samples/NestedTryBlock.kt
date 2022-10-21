@@ -1,7 +1,5 @@
 package samples
 
-import housing_oop.prettyPrintln
-
 fun main() {
     val num = intArrayOf(4, 8, 16, 32, 64, 128)
     val deno = intArrayOf(2, 0, 4, 4, 0, 8)

@@ -1,7 +1,5 @@
 package samples
 
-import housing_oop.prettyPrintln
-
 fun main() {
     // cannot add new elements
     val interestingThings = listOf("Kotlin", "Python", "SQL", "Solidity")
@@ -13,8 +11,8 @@ fun main() {
     //endRegion
 
     // can add ne elements
-        val mutableInterestingThings = mutableListOf("Kotlin", "Python", "SQL", "Solidity")
-    mutableInterestingThings.add( "Android")
+    val mutableInterestingThings = mutableListOf("Kotlin", "Python", "SQL", "Solidity")
+    mutableInterestingThings.add("Android")
     mutableInterestingThings.forEach { thing -> prettyPrintln(thing) }
 
     val mutableMap = mutableMapOf(1 to "a", 2 to "b", 3 to "c", 4 to "d")
