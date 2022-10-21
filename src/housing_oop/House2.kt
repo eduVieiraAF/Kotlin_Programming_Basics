@@ -1,5 +1,7 @@
 package housing_oop
 
+import samples.capitalized
+
 class House2(
     override var owner: String,
     override val rooms: Int,

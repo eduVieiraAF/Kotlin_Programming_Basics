@@ -1,5 +1,7 @@
 package housing_oop
 
+import samples.capitalized
+
 class House(rooms: Int, color: String) {
     private var color: String
     private val rooms: Int

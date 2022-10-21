@@ -1,6 +1,5 @@
-package debugging
+package samples
 
-import housing_oop.prettyPrintln
 
 fun main(args: Array<String>) {
     prettyPrintln("Average finder")

@@ -34,7 +34,7 @@ fun main() {
 
 Here's another alternative but no nested for loops as th challenge suggested
 
-fun samples.main() {
+fun samples.samples.main() {
     val listSize = readln().toInt()
     val mylist = MutableList(listSize) { readln().toInt() }
     val s = readln().split(" ").map(String::toInt)

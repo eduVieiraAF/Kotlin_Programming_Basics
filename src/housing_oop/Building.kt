@@ -1,5 +1,7 @@
 package housing_oop
 
+import samples.capitalized
+
 open class Building(marketPrice: Double): BuildingDetails(), BuildingMaintenance, BuildingStaff {
     init {
         println("Current market value is $marketPrice")

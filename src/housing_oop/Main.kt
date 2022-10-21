@@ -1,5 +1,8 @@
 package housing_oop
 
+import samples.capitalized
+import samples.prettyPrintln
+
 fun main() {
 
     val house = House(3, 2.0, "red", 500.00)
