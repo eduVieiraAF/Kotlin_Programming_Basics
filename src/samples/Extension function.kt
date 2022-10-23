@@ -42,3 +42,5 @@ fun isNumber(check:String): Boolean {
     return check.all { char -> char.isDigit() }
 }
 
+fun String.nullIfEmpty(): String? = if (this.isBlank() || this.isEmpty()) null else this
+
