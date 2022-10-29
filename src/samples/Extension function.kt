@@ -1,5 +1,7 @@
 package samples
 
+import java.math.BigDecimal
+import java.math.RoundingMode
 import java.util.*
 
 fun String.removeFirstLastChar(): String =  this.substring(1, this.length - 1)
@@ -43,4 +45,6 @@ fun isNumber(check:String): Boolean {
 }
 
 fun String.nullIfEmpty(): String? = if (this.isBlank() || this.isEmpty()) null else this
+
+fun Double.decimalPlaces(n: Int) = BigDecimal(this).setScale(n, RoundingMode.HALF_EVEN)
 
