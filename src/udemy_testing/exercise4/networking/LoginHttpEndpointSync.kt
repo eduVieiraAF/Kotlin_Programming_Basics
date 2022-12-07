@@ -1,4 +1,4 @@
-package udemy.exercise4.networking
+package udemy_testing.exercise4.networking
 
 interface LoginHttpEndpointSync {
 

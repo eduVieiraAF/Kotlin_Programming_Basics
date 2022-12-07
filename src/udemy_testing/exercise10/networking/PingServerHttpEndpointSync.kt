@@ -1,4 +1,4 @@
-package udemy.exercise10.networking
+package udemy_testing.exercise10.networking
 
 interface PingServerHttpEndpointSync {
     enum class EndpointResult {

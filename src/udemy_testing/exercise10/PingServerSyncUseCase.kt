@@ -1,6 +1,6 @@
-package udemy.exercise10
+package udemy_testing.exercise10
 
-import udemy.exercise10.networking.PingServerHttpEndpointSync
+import udemy_testing.exercise10.networking.PingServerHttpEndpointSync
 
 class PingServerSyncUseCase(pingServerHttpEndpointSync: PingServerHttpEndpointSync) {
     enum class UseCaseResult {

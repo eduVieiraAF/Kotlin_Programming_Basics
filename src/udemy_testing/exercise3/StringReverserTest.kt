@@ -1,4 +1,4 @@
-package udemy.exercise3
+package udemy_testing.exercise3
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

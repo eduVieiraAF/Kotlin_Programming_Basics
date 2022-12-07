@@ -1,4 +1,4 @@
-package udemy.exercise5
+package udemy_testing.exercise5
 
 class ServerUsernameValidator {
     fun isValidUsername(username: String): Boolean {

@@ -1,4 +1,4 @@
-package udemy.exerciseextra
+package udemy_testing.exerciseextra
 
 import org.junit.Test
 import kotlin.test.assertEquals

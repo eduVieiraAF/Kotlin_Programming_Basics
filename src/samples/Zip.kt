@@ -13,9 +13,9 @@ fun main() {
     val B = listOf(1, 2, 3, 4)
 
     val resulPairs = A zip B // [(a, 1), (b, 2), (c, 3)]
-    val resultReduce = A.zip(B) {a,b -> "$a$b"} // [a1, b2, c3]
-    val resultCustom = A.zip(B) {a,b -> "$a:$b"} // [a:1, b:2, c:3]
-    val resultCustom2 = A.zip(B) { a, b -> "$a goes with $b"} //[a goes with 1, b goes with 2, c goes with 3]
+    val resultReduce = A.zip(B) { a, b -> "$a$b" } // [a1, b2, c3]
+    val resultCustom = A.zip(B) { a, b -> "$a:$b" } // [a:1, b:2, c:3]
+    val resultCustom2 = A.zip(B) { a, b -> "$a goes with $b" } //[a goes with 1, b goes with 2, c goes with 3]
 
     println("Merging $A with $B »»»\n")
     println("Default merge → $resulPairs")

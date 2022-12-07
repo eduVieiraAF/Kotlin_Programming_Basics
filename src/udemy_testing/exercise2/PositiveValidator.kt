@@ -1,4 +1,4 @@
-package udemy.exercise2
+package udemy_testing.exercise2
 
 class PositiveValidator {
     fun isPositive(num: Int): Boolean {

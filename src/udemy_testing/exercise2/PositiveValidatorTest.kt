@@ -1,4 +1,4 @@
-package udemy.exercise2
+package udemy_testing.exercise2
 
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue

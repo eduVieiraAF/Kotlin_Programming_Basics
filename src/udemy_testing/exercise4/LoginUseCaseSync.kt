@@ -1,10 +1,10 @@
-package udemy.exercise4
+package udemy_testing.exercise4
 
-import udemy.exercise4.authtoken.AuthTokenCache
-import udemy.exercise4.eventbus.EventBusPoster
-import udemy.exercise4.eventbus.LoggedInEvent
-import udemy.exercise4.networking.LoginHttpEndpointSync
-import udemy.exercise4.networking.NetworkErrorExceptions
+import udemy_testing.exercise4.authtoken.AuthTokenCache
+import udemy_testing.exercise4.eventbus.EventBusPoster
+import udemy_testing.exercise4.eventbus.LoggedInEvent
+import udemy_testing.exercise4.networking.LoginHttpEndpointSync
+import udemy_testing.exercise4.networking.NetworkErrorExceptions
 
 class LoginUseCaseSync(
     private var mLoginHttpEndpointSync: LoginHttpEndpointSync?,

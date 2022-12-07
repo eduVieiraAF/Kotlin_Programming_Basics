@@ -1,4 +1,4 @@
-package udemy.exercise4
+package udemy_testing.exercise4
 
 import org.hamcrest.CoreMatchers
 import org.junit.Assert
@@ -11,11 +11,11 @@ import org.mockito.Matchers
 import org.mockito.Mock
 import org.mockito.Mockito.*
 import org.mockito.runners.MockitoJUnitRunner
-import udemy.exercise4.authtoken.AuthTokenCache
-import udemy.exercise4.eventbus.EventBusPoster
-import udemy.exercise4.eventbus.LoggedInEvent
-import udemy.exercise4.networking.LoginHttpEndpointSync
-import udemy.exercise4.networking.NetworkErrorExceptions
+import udemy_testing.exercise4.authtoken.AuthTokenCache
+import udemy_testing.exercise4.eventbus.EventBusPoster
+import udemy_testing.exercise4.eventbus.LoggedInEvent
+import udemy_testing.exercise4.networking.LoginHttpEndpointSync
+import udemy_testing.exercise4.networking.NetworkErrorExceptions
 
 @Suppress("FunctionName", "PrivatePropertyName")
 @RunWith(MockitoJUnitRunner::class)
