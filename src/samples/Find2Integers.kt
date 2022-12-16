@@ -11,16 +11,20 @@ If both numbers occur in the list you need to print YES, otherwise – NO.
 
 fun main() {
 
-    val listSize = readln().toInt()
+    val listSize = readLine()?.toInt()
     val myList = mutableListOf<Int>()
-    repeat(listSize) { myList.add(readln().toInt()) }
-    val (p, m) = readln().split(" ")
+    if (listSize != null) {
+        repeat(listSize) { readLine()?.toInt()?.let { it1 -> myList.add(it1) } }
+    }
+    val (p, m) = readLine()!!.split(" ")
     var flag = false
 
-    for (i in listSize - 1 downTo 0) {
-        if (p.toInt() == myList[i]) {
-            for (j in listSize - 1 downTo 0) {
-                if (m.toInt() == myList[j]) flag = true
+    if (listSize != null) {
+        for (i in listSize - 1 downTo 0) {
+            if (p.toInt() == myList[i]) {
+                for (j in listSize - 1 downTo 0) {
+                    if (m.toInt() == myList[j]) flag = true
+                }
             }
         }
     }
