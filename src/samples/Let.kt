@@ -1,3 +1,5 @@
+import samples.capitalized
+
 /* let
 
 The Kotlin standard library function let can be used for scoping and null-checks. When called on an object,
@@ -7,7 +9,7 @@ the block by the reference it (by default) or a custom name.
 
 fun customPrint(s: String) {
 
-    print(s.uppercase())
+    print(s.capitalized())
 }
 
 fun main() {
@@ -25,7 +27,7 @@ fun main() {
         println("Printing \"$str\":")
 
         str?.let {             // Uses safe call, so let and its code block will be executed
-                                      // only on non-null values.
+            // only on non-null values.
             print("\t")
             customPrint(it)
             println()
@@ -35,7 +37,7 @@ fun main() {
     fun printIfBothNonNull(strOne: String?, strTwo: String?) {
 
         strOne?.let { firstString ->         // Uses the custom name instead of it, so that the nested let can
-                                             // access the context object of the outer let.
+            // access the context object of the outer let.
             strTwo?.let { secondString ->
 
                 customPrint("$firstString : $secondString")
@@ -46,5 +48,5 @@ fun main() {
 
     printNonNull(null)
     printNonNull("my string")
-    printIfBothNonNull("First","Second")
+    printIfBothNonNull("First", "Second")
 }
