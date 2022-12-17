@@ -4,7 +4,6 @@ import java.text.DecimalFormat
 // Example #1
 
 fun main(){
-
     rounding1()
     rounding2()
 }
@@ -12,7 +11,6 @@ fun main(){
 fun rounding1() {
 
     val number = 4.3651
-
     println("%.4f".format(number))
 }
 

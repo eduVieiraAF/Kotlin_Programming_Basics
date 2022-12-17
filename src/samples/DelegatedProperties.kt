@@ -9,12 +9,12 @@ properties, you'll also need setValue.
 import kotlin.reflect.KProperty
 
 class Example {
-    var OOP: String by Delegate()
+    var oop: String by Delegate()
 
     override fun toString(): String = "Example Class"
 }
 
-class Delegate() {
+class Delegate {
     operator fun getValue(thisRef: Any?, prop: KProperty<*>): String {
         return "$thisRef, thank you fo delegating '${prop.name}' to me."
     }
@@ -27,6 +27,6 @@ class Delegate() {
 fun main() {
     val example = Example()
 
-    println(example.OOP)
-    example.OOP = "\"New assignment\""
+    println(example.oop)
+    example.oop = "\"New assignment\""
 }

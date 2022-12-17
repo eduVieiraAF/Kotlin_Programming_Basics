@@ -5,8 +5,7 @@ import java.util.*
 enum class EntityTypes {
     HELP, EASY, MEDIUM, HARD;
 
-    fun getFormattedName() = name.lowercase()
-        .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+    fun getFormattedName() = name.toLowerCase()
 }
 
 object EntityFactory {
@@ -52,8 +51,7 @@ val Entity.Medium.info: String
 
 fun main() {
 //companion objects have access to properties & methods of that enclosing class
-    val entity: Entity = EntityFactory.create(EntityTypes.EASY)
-    val msg = when (entity) {
+    val msg = when (EntityFactory.create(EntityTypes.EASY)) {
         is Entity.Easy -> "easy class"
         is Entity.Hard -> "hard class"
         Entity.Help -> "help class"
