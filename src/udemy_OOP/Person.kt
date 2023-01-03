@@ -1,4 +1,4 @@
-package Udemy_OOP
+package udemy_OOP
 
 import samples.prettyPrintln
 

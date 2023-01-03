@@ -1,4 +1,4 @@
-package Udemy_OOP
+package udemy_OOP
 
 var b: Int = 0
 
