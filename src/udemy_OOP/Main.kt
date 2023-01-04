@@ -43,4 +43,9 @@ fun main() {
     println(user3.component2()) // the name parameter
 
     val (code, avatar) = user1
+
+    val truck = PickUpTrucks("F250", "Ford", "Diesel")
+    truck.color = "Midnite Black"
+    truck.drive(140)
+    println("${truck.model} is ${truck.color}")
 }
