@@ -44,8 +44,8 @@ fun main() {
 
     val (code, avatar) = user1
 
-    val truck = PickUpTrucks("F250", "Ford", "Diesel")
+    val truck = PickUpTrucks("F250", "Ford", "Diesel", 260)
     truck.color = "Midnite Black"
-    truck.drive(140)
+    println(truck.drive(140))
     println("${truck.model} is ${truck.color}")
 }
