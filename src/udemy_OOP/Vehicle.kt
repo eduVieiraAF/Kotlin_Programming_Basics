@@ -4,8 +4,13 @@ package udemy_OOP
 open class Vehicle(val model: String, val brand: String, override val maxSpeed: Int): Drivable {
     lateinit var color: String
     lateinit var transmition: String
+
     override fun drive(speed: Int): String {
         return "$brand $model is going at $speed"
+    }
+
+    override fun brake() {
+        super.brake()
     }
 
 }
