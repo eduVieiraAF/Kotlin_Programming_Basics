@@ -48,4 +48,18 @@ fun main() {
     truck.color = "Midnite Black"
     println(truck.drive(140))
     println("${truck.model} is ${truck.color}")
+
+    prettyPrintln()
+
+    val human = Human("Eduardo", "Brazil", 79.0)
+    val elephant = Elephant("Sarah", "India", 4800.0)
+
+    human.run()
+    human.breathe()
+    println()
+    elephant.run()
+    elephant.breathe()
+    println()
+    println(human.maxSpeed)
+    println(elephant.maxSpeed)
 }
