@@ -4,9 +4,9 @@ import java.util.*
 fun main() {
 
     val myList = mutableListOf<Int>()
-    val n = readln().toInt()
+    val n = readLine()?.toInt()
 
-    repeat(n) { myList.add(readln().toInt()) }
+    repeat(n!!) { readLine()?.toInt()?.let { it1 -> myList.add(it1) } }
     Collections.rotate(myList, n + 1)
     println(myList.joinToString(" "))
 

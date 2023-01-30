@@ -72,3 +72,4 @@ fun main() {
     prettyPrintln("ID count: $idCount") // outputs 3144
     enrollReport()
 }
+

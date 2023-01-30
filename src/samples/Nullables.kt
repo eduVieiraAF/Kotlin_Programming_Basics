@@ -12,3 +12,4 @@ fun main() {
     val len2 = nullName?.length // solves the error instead of using if
     nullName?.let { println(it.length) }
 }
+
