@@ -12,7 +12,7 @@ val enroll = mutableListOf<String>()
 data class GymMember(val id: Int, val name: String, val age: Int, val accessPlan: String, val planDescription: String)
 
 fun createLog(m: GymMember) = println("→ A new member \'($idCount) ${m.name}\' was registered.\n" +
-        "\t• Member chose the \'${m.accessPlan}\' facility access plan.\n" +
+        "\t• Member opted for the \'${m.accessPlan}\' facility access plan.\n" +
         "\t\t• Plan details: ${m.planDescription}")
 
 /*
