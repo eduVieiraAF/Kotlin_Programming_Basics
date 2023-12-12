@@ -58,5 +58,8 @@
     <orderEntry type="library" name="khhtp" level="project" />
     <orderEntry type="library" name="google.code.gson" level="project" />
     <orderEntry type="library" name="json" level="project" />
+    <orderEntry type="library" name="opencsv" level="project" />
+    <orderEntry type="library" name="seedstack.addons.io.supercsv" level="project" />
+    <orderEntry type="library" name="jetbrains.kotlinx.coroutines.core" level="project" />
   </component>
 </module>

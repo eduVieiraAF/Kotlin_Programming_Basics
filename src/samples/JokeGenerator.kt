@@ -14,7 +14,7 @@ fun main() {
         jokes.add(joke)
     }
 
-    jokes.forEach { println("${it.id}\n${it.type}\n\t${it.setup}\n${it.punchline}") }
+    jokes.forEach { println("${it.id}\n${it.type}\n\t${it.setup}\n${it.punchline}\n") }
 }
 
 class Joke(val id: Int, val type: String, val setup: String, val punchline: String)
