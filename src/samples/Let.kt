@@ -1,4 +1,4 @@
-import samples.capitalized
+package samples
 
 /* let
 

@@ -1,6 +1,6 @@
-
+package samples
 fun main(){
-    val num = readln().toInt()
+    val num = readLine()!!.toInt()
     var flag = false
 
     for (count in 2..num / 2){
