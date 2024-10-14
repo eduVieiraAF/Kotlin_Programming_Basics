@@ -30,4 +30,14 @@ fun main(){
         }
     }
     lion.makeSound()
+
+    println()
+
+    val tiger = object: Animal("Tiger", 2) {
+        override fun makeSound() {
+
+            println("ROAR!!! [and limps]")
+        }
+    }
+    tiger.makeSound()
 }
