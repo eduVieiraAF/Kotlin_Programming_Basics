@@ -3,25 +3,24 @@ package samples
 fun main() {
     val c1: Father.Child1 = Father.Child1
     val c2 = Father.Child2
-    family(c1)
-    family(c2)
+
+    describeFamilyMember(c1)
+    describeFamilyMember(c2)
 }
 
 sealed class Father {
     // A sealed class is a class that restricts the class hierarchy
-
     object Child1 : Father()
     object Child2 : Father()
     object Child3 : Father()
 
 }
 
-fun family(member: Father) {
+fun describeFamilyMember(member: Father) {
     when (member) {
-        is Father.Child1 -> println("1st born")
-        is Father.Child2 -> println("middle child")
-        is Father.Child3 -> println("youngest one")
-        // no need for the else statement because of the sealed class
+        Father.Child1 -> println("Firstborn")
+        Father.Child2 -> println("Middle child")
+        Father.Child3 -> println("Youngest child")
     }
 }
 

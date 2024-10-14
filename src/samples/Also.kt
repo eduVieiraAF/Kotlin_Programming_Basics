@@ -11,9 +11,20 @@ val enroll = mutableListOf<String>()
 
 data class GymMember(val id: Int, val name: String, val age: Int, val accessPlan: String, val planDescription: String)
 
-fun createLog(m: GymMember) = println("→ A new member \'($idCount) ${m.name}\' was registered.\n" +
-        "\t• Member opted for the \'${m.accessPlan}\' facility access plan.\n" +
-        "\t\t• Plan details: ${m.planDescription}")
+private val log = StringBuilder()
+
+/**
+ * Logs a new gym member registration.
+ *
+ * @param m the gym member to be registered
+ */
+fun createLog(m: GymMember) {
+    log.setLength(0)
+    log.append("→ A new member \'($idCount) ${m.name}\' was registered.\n")
+            .append("\t• Member opted for the \'${m.accessPlan}\' facility access plan.\n")
+            .append("\t\t• Plan details: ${m.planDescription}")
+    println(log.toString())
+}
 
 /*
 → Had this work well before changing to sealed class
@@ -33,41 +44,26 @@ sealed class Plan (val accessPlan: String, val description: String){
     object Premium : Plan("PREMIUM", "FULL + personal trainer.")
 }
 
-fun enrollReport() {
-    println("TODAY'S ENROLLMENT:\n")
-    for (i in 0 until enroll.size){
-        prettyPrintln(enroll[i])
-    }
-}
+    /**
+     * Prints out the enrollments for the day.
+     */
+fun enrollReport() = println("TODAY'S ENROLLMENT:\n${enroll.joinToString(separator = "\n")}")
 
+    /**
+     * Registers 4 gym members, logs each registration, and then prints out the enrollments for the day.
+     */
 fun main() {
-    val maddie = GymMember(++idCount, // automatically ups idCount as it creates new member
-        "Maddie Wilkerson",
-        19,
-        Plan.Premium.accessPlan,
-        Plan.Premium.description).also { createLog(it) }.toString()
-    enroll.add(maddie)
-
-    val steve = GymMember(++idCount, // automatically ups idCount as it creates new member
-        "Steve Olsen",
-        29,
-        Plan.Basic.accessPlan,
-        Plan.Basic.description).also { createLog(it) }.toString()
-    enroll.add(steve)
-
-    val henry = GymMember(++idCount,
-        "Henry Mendez",
-        23,
-        Plan.Full.accessPlan,
-        Plan.Full.description).also { createLog(it) }.toString()
-    enroll.add(henry)
-
-    val don = GymMember(++idCount,
-        "Dominic Flinch",
-        31,
-        Plan.PerDay.accessPlan,
-        Plan.PerDay.description).also { createLog(it) }.toString()
-    enroll.add(don)
+    val members = buildList {
+        add(GymMember(++idCount, "Maddie Wilkerson", 19, Plan.Premium.accessPlan, Plan.Premium.description)
+            .also { createLog(it) })
+        add(GymMember(++idCount, "Steve Olsen", 29, Plan.Basic.accessPlan, Plan.Basic.description)
+            .also { createLog(it) })
+        add(GymMember(++idCount, "Henry Mendez", 23, Plan.Full.accessPlan, Plan.Full.description)
+            .also { createLog(it) })
+        add(GymMember(++idCount, "Dominic Flinch", 31, Plan.PerDay.accessPlan, Plan.PerDay.description)
+            .also { createLog(it) })
+    }.map { it.toString() }.toMutableList()
+    enroll.addAll(members)
 
     prettyPrintln("ID count: $idCount") // outputs 3144
     enrollReport()

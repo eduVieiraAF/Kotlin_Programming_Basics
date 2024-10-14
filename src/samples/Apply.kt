@@ -1,8 +1,8 @@
 package samples
 
 /*
-'apply' executes a block of code on an object and returns the object itself. Inside the block, the object is
-referenced by 'this'. This function is handy for initializing objects.
+* 'apply' executes a block of code on an object and returns the object itself. Inside the block, the object is
+* referenced by 'this'. This function is handy for initializing objects.
  */
 
 data class StaffMember(var name: String, var age: Int, var job: String, var credentials: Int) {
@@ -34,8 +34,17 @@ fun main() {
         credentials = 4
     }
 
-    println(joshDescription)
-    println(wendyDescription)
-    println(kenDescription)
-    println(josh) // also works
+    val dan = StaffMember()
+
+    // create a list of staff members
+    val staffMembers = listOf(joshDescription, wendyDescription, kenDescription, dan)
+
+    staffMembers.forEach {
+        prettyPrintln(it)
+    }
+
+//    println(joshDescription)
+//    println(wendyDescription)
+//    println(kenDescription)
+//    println(josh) // also works
 }

@@ -1,7 +1,7 @@
 package samples
 
 fun main() {
-    val num = intArrayOf(4, 8, 16, 32, 64, 128)
+    val num = intArrayOf(4, 8, 16, 32, 64, 128, 154)
     val deno = intArrayOf(2, 0, 4, 4, 0, 8)
 
     try {

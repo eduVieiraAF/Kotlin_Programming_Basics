@@ -1,19 +1,14 @@
 package samples
 
+/**
+ * Prints the max values of Byte, Int, Long and Short in order.
+ *
+ * The output will be [127, 2147483647, 9223372036854775807, 32767].
+ */
 fun main() {
 
-    val int = Int.MAX_VALUE.toLong()
-    val long = Long.MAX_VALUE
-    val short = Short.MAX_VALUE.toLong()
-    val byte = Byte.MAX_VALUE.toLong()
+    val array = listOf(Byte.MAX_VALUE.toLong(), Int.MAX_VALUE.toLong(), Long.MAX_VALUE, Short.MAX_VALUE.toLong())
 
-    val array = mutableListOf(byte, int, long, short)
-    var temp: Long?
-
-    for (i in 1..array.size) {
-        temp = array.minOrNull()
-        println(temp)
-        array.removeAt(array.indexOf(temp))
-    }
+    array.sorted().forEach { println(it) }
 }
 
